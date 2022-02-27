@@ -23,6 +23,6 @@ class MobilController extends Controller
         $mobil_id = $id;
         $findMobil = Mobil::findOrFail($mobil_id);
         $findMobil->forceDelete();
-        return redirect()->route('dashboard')->with('status', 'Data telah dihapus!');
+        return redirect()->route('daftar-mobil')->with('status', 'Data telah dihapus!');
     }
 }
