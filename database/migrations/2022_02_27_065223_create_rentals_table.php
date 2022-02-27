@@ -10,6 +10,21 @@ class CreateRentalsTable extends Migration
     {
         Schema::create('rental', function (Blueprint $table) {
             $table->id();
+
+            $table->string('rental_kode')->nullable();
+            $table->string('rental_waktu_pemesanan')->nullable();
+            $table->string('rental_durasi')->nullable();
+            $table->string('rental_info')->nullable();
+            $table->string('rental_status')->nullable();
+            $table->string('rental_bukti_ktp')->nullable();
+            $table->string('rental_bukti_lain')->nullable();
+
+            $table->unsignedBigInteger('data_id')->nullable()->default(null);
+            $table->foreign('data_id')->references('id')->on('data_pengguna')->onDelete('cascade');
+
+            $table->unsignedBigInteger('mobil_id')->nullable()->default(null);
+            $table->foreign('mobil_id')->references('id')->on('mobil')->onDelete('cascade');
+
             $table->timestamps();
         });
     }
