@@ -15,7 +15,6 @@ class CreateDataTable extends Migration
             $table->string('data_jenis_kelamin')->nullable();
             $table->string('data_email')->nullable();
             $table->string('data_telepon')->nullable();
-            $table->string('data_status_pembayaran')->nullable(); // DIPROSES / SELESAI / DIBATALKAN
             $table->timestamps();
         });
     }
