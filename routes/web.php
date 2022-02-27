@@ -7,11 +7,15 @@ use App\Http\Controllers\MobilController;
 use App\Http\Controllers\PenyewaController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// MISC ROUTE
+Route::get('/login', [BackController::class, 'login'])->name('login');
+Route::get('/register', [BackController::class, 'register'])->name('register');
+Route::post('/post-login', [BackController::class, 'postlogin'])->name('post-login');
+Route::post('/post-register', [BackController::class, 'postregister'])->name('post-register');
+Route::post('/logout', [BackController::class, 'logout'])->name('logout');
 
-Route::group(["prefix" => "/dashboard"], function () {
+// DASHBOARD ROUTE
+Route::group(["prefix" => "/dashboard", "middleware" => "ceklogin"], function () {
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
 
     // Mobil
