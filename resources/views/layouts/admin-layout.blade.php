@@ -41,7 +41,9 @@
           </div>
 
           <div class="section-body">
-              @yield('content-body')
+              {{-- <div class="container"> --}}
+                  @yield('content-body')
+              {{-- </div> --}}
           </div>
         </section>
       </div>
