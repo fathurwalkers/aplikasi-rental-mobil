@@ -1,10 +1,10 @@
 <div>
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-          <a href="index.html">Stisla</a>
+          <a href="index.html">Rendra Rental</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-          <a href="index.html">St</a>
+          <a href="index.html">RR</a>
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Beranda</li>
@@ -17,7 +17,6 @@
               <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Kelola Akun</span></a>
               <ul class="dropdown-menu">
                   <li><a class="nav-link" href="index.html">Lihat Informasi Akun</a></li>
-                <li><a class="nav-link" href="index-0.html">Ubah Informasi Akun</a></li>
               </ul>
             </li>
 
@@ -27,9 +26,6 @@
               <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Kelola Rental</span></a>
               <ul class="dropdown-menu">
                 <li><a class="nav-link" href="forms-advanced-form.html">Informasi Rental</a></li>
-                <li><a class="nav-link" href="forms-editor.html">Tambah Item Rental </a></li>
-                <li><a class="nav-link" href="forms-validation.html">Informasi Penyewaan</a></li>
-                <li><a class="nav-link" href="forms-validation.html">Daftar Penyewa</a></li>
                 <li><a class="nav-link" href="forms-validation.html">Laporan</a></li>
               </ul>
             </li>
