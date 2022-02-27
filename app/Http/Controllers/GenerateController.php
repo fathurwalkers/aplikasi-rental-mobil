@@ -91,7 +91,7 @@ class GenerateController extends Controller
     {
         $faker                  = Faker::create('id_ID');
         for ($i=0; $i < 2; $i++) {
-
+            $arr_number  = [1, 2, 3, 4, 5];
             $arr_transmisi = [
                 "AUTOMATIC",
                 "MANUAL",
@@ -121,10 +121,11 @@ class GenerateController extends Controller
             $random_max_mil = Arr::random($arr_max_mil);
             $random_kondisi = Arr::random($arr_kondisi);
             $random_merk = Arr::random($arr_merk);
+            $random_number = Arr::random($arr_number);
 
             $mobil = new Mobil;
             $save_mobil = $mobil->create([
-                "mobil_deskripsi" => ,
+                "mobil_deskripsi" => $faker->paragraph($random_number, false),
                 "mobil_merk" => $random_merk,
                 "mobil_kondisi" => $random_kondisi,
                 "mobil_tipe_model" => "DEFAULT",
@@ -132,6 +133,8 @@ class GenerateController extends Controller
                 "mobil_tahun" => $random_tahun,
                 "mobil_jenis_transmisi" => $random_transmisi,
                 "mobil_jenis_body" => $random_jenis_body,
+                "created_at" => now(),
+                "updated_at" => now()
             ]);
         }
     }
