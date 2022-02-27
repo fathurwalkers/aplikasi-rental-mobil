@@ -17,7 +17,7 @@ class CreateLoginsTable extends Migration
             $table->string('login_email')->unique()->nullable();
             $table->string('login_telepon')->nullable();
             $table->text('login_token')->nullable();
-            $table->string('login_level')->nullable(); // ADMIN - PENDAFTAR - PANITIA
+            $table->string('login_level')->nullable(); // ADMIN - CUSTOMER
             $table->string('login_status')->nullable(); // unverified / verified
 
             $table->unsignedBigInteger('data_id')->nullable()->default(null);
