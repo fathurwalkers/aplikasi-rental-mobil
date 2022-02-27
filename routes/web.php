@@ -16,4 +16,6 @@ Route::group(["prefix" => "/dashboard"], function () {
 });
 
 // GENERATE ROUTE
+Route::get('/generate/chained-generate', [GenerateController::class, 'chained_generate'])->name('chained-generate');
 Route::get('/generate/customer', [GenerateController::class, 'generate_pengguna'])->name('generate-customer');
+Route::get('/generate/mobil', [GenerateController::class, 'generate_mobil'])->name('generate-mobil');

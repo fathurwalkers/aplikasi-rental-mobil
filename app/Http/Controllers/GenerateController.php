@@ -18,7 +18,7 @@ class GenerateController extends Controller
     public function generate_pengguna()
     {
         $faker                  = Faker::create('id_ID');
-        for ($i = 0; $i < 10; $i++) {
+        for ($i = 0; $i < 20; $i++) {
 
             // DATA PENGGUNA
             $arr_jenis_kelamin  = ["L", "P"];
@@ -90,7 +90,7 @@ class GenerateController extends Controller
     public function generate_mobil()
     {
         $faker                  = Faker::create('id_ID');
-        for ($i=0; $i < 2; $i++) {
+        for ($i=0; $i < 40; $i++) {
             $arr_number  = [1, 2, 3, 4, 5];
             $arr_transmisi = [
                 "AUTOMATIC",
@@ -137,5 +137,13 @@ class GenerateController extends Controller
                 "updated_at" => now()
             ]);
         }
+        return redirect()->route('dashboard');
+    }
+
+    public function chained_generate()
+    {
+        $this->generate_pengguna();
+        $this->generate_mobil();
+        return redirect()->route('dashboard');
     }
 }
