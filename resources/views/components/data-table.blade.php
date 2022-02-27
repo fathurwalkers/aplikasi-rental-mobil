@@ -4,11 +4,11 @@
             <tr class="text-center">
                 <th>No</th>
                 <th>Merk</th>
-                <th>Email</th>
-                <th>Jenis Kelamin</th>
-                <th>Pendaftaran</th>
-                <th>Pembayaran</th>
-                {{-- <th>Akun</th> --}}
+                <th>Kondisi</th>
+                <th>Jenis Transmisi</th>
+                <th>Tahun</th>
+                <th>Tipe</th>
+                <th>Jenis Body</th>
                 <th>Kelola</th>
             </tr>
         </thead>
@@ -17,52 +17,41 @@
             @foreach ($mobil as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ Str::limit($item->mobil_merk, 15) }}</td>
                     <td>{{ $item->mobil_merk }}</td>
-                    <td class="text-center" style="width: 10% !important;">{{ $item->mobil_merk }}</td>
+                    <td>{{ $item->mobil_kondisi }}</td>
                     <td>
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                {{-- @switch($item->mobil_merk)
-                                    @case("BELUM DISETUJUI")
-                                        <button class="btn btn-sm btn-danger">
-                                            {{ $item->mobil_merk }}
-                                        </button>
-                                        @break
-                                    @case("DISETUJUI")
+                                @switch($item->mobil_jenis_transmisi)
+                                    @case("AUTOMATIC")
                                         <button class="btn btn-sm btn-success">
-                                            {{ $item->mobil_merk }}
+                                            {{ $item->mobil_jenis_transmisi }}
                                         </button>
                                         @break
-                                @endswitch --}}
-                                <button class="btn btn-sm btn-success">
+                                    @case("SEMI-AUTOMATIC")
+                                        <button class="btn btn-sm btn-primary">
+                                            {{ $item->mobil_jenis_transmisi }}
+                                        </button>
+                                        @break
+                                    @case("MANUAL")
+                                        <button class="btn btn-sm btn-info">
+                                            {{ $item->mobil_jenis_transmisi }}
+                                        </button>
+                                        @break
+                                @endswitch
+                                {{-- <button class="btn btn-sm btn-success">
                                     {{ $item->mobil_merk }}
-                                </button>
+                                </button> --}}
                             </div>
                         </div>
                     </td>
+                    <td class="text-center" style="width: 10% !important;">{{ $item->mobil_tipe_model }}</td>
+                    <td>{{ $item->mobil_tahun }}</td>
                     <td>
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                {{-- @switch($item->data_status_pembayaran)
-                                    @case("DIPROSES")
-                                        <button class="btn btn-sm btn-info">
-                                            {{ $item->data_status_pembayaran }}
-                                        </button>
-                                        @break
-                                    @case("SELESAI")
-                                        <button class="btn btn-sm btn-success">
-                                            {{ $item->data_status_pembayaran }}
-                                        </button>
-                                        @break
-                                    @case("DIBATALKAN")
-                                        <button class="btn btn-sm btn-danger">
-                                            {{ $item->data_status_pembayaran }}
-                                        </button>
-                                        @break
-                                @endswitch --}}
-                                <button class="btn btn-sm btn-danger">
-                                    {{ $item->mobil_merk }}
+                                <button class="btn btn-sm btn-info">
+                                    {{ $item->mobil_jenis_body }}
                                 </button>
                             </div>
                         </div>
