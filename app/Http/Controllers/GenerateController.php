@@ -10,52 +10,23 @@ use Faker\Factory as Faker;
 use Illuminate\Support\Arr;
 use App\Models\Login;
 use App\Models\Data;
+use App\Models\Mobil;
+use App\Models\Rental;
 
 class GenerateController extends Controller
 {
-    public function generate_mahasiswa()
+    public function generate_pengguna()
     {
         $faker                  = Faker::create('id_ID');
         for ($i = 0; $i < 10; $i++) {
 
-            // DATA MAHASISWA
+            // DATA PENGGUNA
             $arr_jenis_kelamin  = ["L", "P"];
             $arr_status_pendaftaran = ["DISETUJUI", "BELUM DISETUJUI"];
             $arr_status_pembayaran = ["DIPROSES", "SELESAI", "DIBATALKAN"];
             $arr_number  = [1, 2, 3];
-            $arr_jurusan = [
-                "Teknik Informatika",
-                "Teknik Sipil",
-                "Teknik Pertambangan",
-                "Teknik Mesin",
-                "Sastra Inggris",
-                "Sastra Indonesia",
-                "Perikanan",
-                "Hukum",
-                "Ekonomi",
-                "Akuntansi",
-                "Administrasi Negara",
-                "Sistem Informasi"
-            ];
-            $arr_sekolah = [
-                "SMA 1 Baubau",
-                "SMA 2 Baubau",
-                "SMA 3 Baubau",
-                "SMA 4 Baubau",
-                "SMA 5 Baubau",
-                "SMK 1 Baubau",
-                "SMK 2 Baubau",
-                "SMK 3 Baubau",
-                "SMK 4 Baubau",
-                "MAN 1 Baubau",
-                "MAN 2 Baubau"
-            ];
 
-            $random_status_pendaftaran = Arr::random($arr_status_pendaftaran);
-            $random_status_pembayaran = Arr::random($arr_status_pembayaran);
             $random_number = Arr::random($arr_number);
-            $random_jurusan = Arr::random($arr_jurusan, 3);
-            $random_sekolah = Arr::random($arr_sekolah);
             $random_jenis_kelamin = Arr::random($arr_jenis_kelamin);
 
             switch ($random_jenis_kelamin) {
@@ -73,26 +44,17 @@ class GenerateController extends Controller
                     break;
             }
 
-            $data_mahasiswa = new Data;
-            $save_mahasiswa = $data_mahasiswa->create([
+            $data_customer = new Data;
+            $save_customer = $data_customer->create([
                 'data_foto' => $data_foto,
                 'data_nama_lengkap' => $nama_lengkap,
                 'data_jenis_kelamin' => $random_jenis_kelamin,
                 'data_email' => $faker->email(),
                 'data_telepon' => $faker->phoneNumber(),
-                'data_tempat_lahir' => $faker->city(),
-                'data_tanggal_lahir' => $faker->date(),
-                'data_asal_sekolah' => $random_sekolah,
-                'data_tahun_lulus' => $faker->year(),
-                'data_plihan_jurusan1' => $random_jurusan[0],
-                'data_plihan_jurusan2' => $random_jurusan[1],
-                'data_plihan_jurusan3' => $random_jurusan[2],
-                'data_status_pendaftaran' => $random_status_pendaftaran,
-                'data_status_pembayaran' => $random_status_pembayaran,
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
-            $save_mahasiswa->save();
+            $save_customer->save();
 
             // LOGIN
             $login_model            = new Login;
@@ -104,14 +66,14 @@ class GenerateController extends Controller
             $token                  = Hash::make($token_raw, [
                 'rounds' => 12,
             ]);
-            $level                  = "pendaftar";
+            $level                  = "customer";
             $login_status           = "verified";
             $login_data = $login_model->create([
-                'login_nama'        => $save_mahasiswa->data_nama_lengkap,
-                'login_username'    => 'pendaftar' . $i . strtoupper(Str::random(5)),
+                'login_nama'        => $save_customer->data_nama_lengkap,
+                'login_username'    => 'customer' . $i . strtoupper(Str::random(5)),
                 'login_password'    => $hashPassword,
-                'login_email'       => $save_mahasiswa->data_email,
-                'login_telepon'     => $save_mahasiswa->data_telepon,
+                'login_email'       => $save_customer->data_email,
+                'login_telepon'     => $save_customer->data_telepon,
                 'login_token'       => $token,
                 'login_level'       => $level,
                 'login_status'      => $login_status,
@@ -119,9 +81,58 @@ class GenerateController extends Controller
                 'updated_at'        => now()
             ]);
             $login_data->save();
-            $login_data->data()->associate($save_mahasiswa->id);
+            $login_data->data()->associate($save_customer->id);
             $login_data->save();
         }
-        return redirect()->route('data-mahasiswa');
+        return redirect()->route('dashboard');
+    }
+
+    public function generate_mobil()
+    {
+        $faker                  = Faker::create('id_ID');
+        for ($i=0; $i < 2; $i++) {
+
+            $arr_transmisi = [
+                "AUTOMATIC",
+                "MANUAL",
+                "SEMI-AUTOMATIC"
+            ];
+            $arr_jenis_body = [
+                "COMPACT",
+                "CONVERTIBLE",
+                "COUPLE",
+                "MVP",
+                "OFF-ROAD",
+                "LAINNYA",
+                "SEDAN",
+                "SEDANO",
+                "STATION WAGON",
+                "SUV", "TRANSPORTER",
+                "VAN"
+            ];
+            $arr_kondisi= ["BARU", "LAMA"];
+            $arr_merk= ["TOYOTA","HONDA","DAIHATSU","SUZUKI","MITSUBISHI","KIA","NISSAN","DATSUN"];
+            $arr_tahun = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
+            $arr_max_mil = [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000];
+
+            $random_transmisi = Arr::random($arr_transmisi);
+            $random_jenis_body = Arr::random($arr_jenis_body);
+            $random_tahun = Arr::random($arr_tahun);
+            $random_max_mil = Arr::random($arr_max_mil);
+            $random_kondisi = Arr::random($arr_kondisi);
+            $random_merk = Arr::random($arr_merk);
+
+            $mobil = new Mobil;
+            $save_mobil = $mobil->create([
+                "mobil_deskripsi" => ,
+                "mobil_merk" => $random_merk,
+                "mobil_kondisi" => $random_kondisi,
+                "mobil_tipe_model" => "DEFAULT",
+                "mobil_max_mil" => $random_max_mil,
+                "mobil_tahun" => $random_tahun,
+                "mobil_jenis_transmisi" => $random_transmisi,
+                "mobil_jenis_body" => $random_jenis_body,
+            ]);
+        }
     }
 }

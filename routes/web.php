@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BackController;
+use App\Http\Controllers\GenerateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MobilController;
 use App\Http\Controllers\PenyewaController;
@@ -13,3 +14,6 @@ Route::get('/', function () {
 Route::group(["prefix" => "/dashboard"], function () {
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
 });
+
+// GENERATE ROUTE
+Route::get('/generate/customer', [GenerateController::class, 'generate_pengguna'])->name('generate-customer');

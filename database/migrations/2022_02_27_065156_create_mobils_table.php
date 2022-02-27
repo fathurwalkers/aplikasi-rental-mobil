@@ -12,7 +12,6 @@ class CreateMobilsTable extends Migration
             $table->id();
 
             $table->text('mobil_deskripsi')->nullable();
-            $table->string('mobil_nama')->nullable();
             $table->string('mobil_merk')->nullable();
             $table->string('mobil_kondisi')->nullable();
             $table->string('mobil_tipe_model')->nullable();
