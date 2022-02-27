@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
+use App\Models\Data;
+use App\Models\Login;
+use App\Models\Mobil;
+use App\Models\Rental;
 
 class BackController extends Controller
 {
