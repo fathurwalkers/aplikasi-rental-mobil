@@ -3,7 +3,7 @@
         <thead class="thead-dark">
             <tr class="text-center">
                 <th>No</th>
-                <th>Nama</th>
+                <th>Merk</th>
                 <th>Email</th>
                 <th>Jenis Kelamin</th>
                 <th>Pendaftaran</th>
@@ -112,15 +112,15 @@
                             </div>
 
                             <div class="modal-body">Apakah anda yakin ingin menghapus item ini? </div>
-                            {{-- <form action="" method="POST" enctype="multipart/form-data"> --}}
-                                {{-- @csrf --}}
+                            <form action="{{ route('hapus-mobil', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <div class="modal-footer">
                                     <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Cancel</button>
                                     <button type="submit" class="btn btn-outline-danger" >
                                         Delete
                                     </button>
                                 </div>
-                            {{-- </form> --}}
+                            </form>
 
                         </div>
                     </div>

@@ -13,7 +13,10 @@ Route::get('/', function () {
 
 Route::group(["prefix" => "/dashboard"], function () {
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
+
+    // Mobil
     Route::get('/daftar-mobil', [MobilController::class, 'daftar_mobil'])->name('daftar-mobil');
+    Route::post('/daftar-mobil/hapus/{id}', [MobilController::class, 'hapus_mobil'])->name('hapus-mobil');
 });
 
 // GENERATE ROUTE

@@ -17,4 +17,12 @@ class MobilController extends Controller
             'mobil' => $mobil
         ]);
     }
+
+    public function hapus_mobil(Request $request, $id)
+    {
+        $mobil_id = $id;
+        $findMobil = Mobil::findOrFail($mobil_id);
+        $findMobil->forceDelete();
+        return redirect()->route('dashboard')->with('status', 'Data telah dihapus!');
+    }
 }
