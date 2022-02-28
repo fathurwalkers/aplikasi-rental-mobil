@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Rental;
 
-class Mobil extends Model
+class Kendaraan extends Model
 {
     use HasFactory;
 
-    protected $table = "mobil";
+    protected $table = "kendaraan";
     protected $guarded = [];
     protected $primaryKey = "id";
 

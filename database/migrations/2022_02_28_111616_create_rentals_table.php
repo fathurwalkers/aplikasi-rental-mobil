@@ -22,8 +22,8 @@ class CreateRentalsTable extends Migration
             $table->unsignedBigInteger('data_id')->nullable()->default(null);
             $table->foreign('data_id')->references('id')->on('data_pengguna')->onDelete('cascade');
 
-            $table->unsignedBigInteger('mobil_id')->nullable()->default(null);
-            $table->foreign('mobil_id')->references('id')->on('mobil')->onDelete('cascade');
+            $table->unsignedBigInteger('kendaraan_id')->nullable()->default(null);
+            $table->foreign('kendaraan_id')->references('id')->on('kendaraan')->onDelete('cascade');
 
             $table->timestamps();
         });

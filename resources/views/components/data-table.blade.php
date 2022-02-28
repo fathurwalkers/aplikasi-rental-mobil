@@ -4,6 +4,7 @@
             <tr class="text-center">
                 <th>No</th>
                 <th>Merk</th>
+                <th>Tipe Kendaraan</th>
                 <th>Kondisi</th>
                 <th>Jenis Transmisi</th>
                 <th>Tahun</th>
@@ -14,44 +15,45 @@
         </thead>
         <tbody>
 
-            @foreach ($mobil as $item)
+            @foreach ($kendaraan as $item)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
-                    <td>{{ $item->mobil_merk }}</td>
-                    <td>{{ $item->mobil_kondisi }}</td>
+                    <td>{{ $item->kendaraan_merk }}</td>
+                    <td>{{ $item->kendaraan_tipe }}</td>
+                    <td>{{ $item->kendaraan_kondisi }}</td>
                     <td>
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                @switch($item->mobil_jenis_transmisi)
+                                @switch($item->kendaraan_jenis_transmisi)
                                     @case("AUTOMATIC")
                                         <button class="btn btn-sm btn-success">
-                                            {{ $item->mobil_jenis_transmisi }}
+                                            {{ $item->kendaraan_jenis_transmisi }}
                                         </button>
                                         @break
                                     @case("SEMI-AUTOMATIC")
                                         <button class="btn btn-sm btn-primary">
-                                            {{ $item->mobil_jenis_transmisi }}
+                                            {{ $item->kendaraan_jenis_transmisi }}
                                         </button>
                                         @break
                                     @case("MANUAL")
                                         <button class="btn btn-sm btn-info">
-                                            {{ $item->mobil_jenis_transmisi }}
+                                            {{ $item->kendaraan_jenis_transmisi }}
                                         </button>
                                         @break
                                 @endswitch
                                 {{-- <button class="btn btn-sm btn-success">
-                                    {{ $item->mobil_merk }}
+                                    {{ $item->kendaraan_merk }}
                                 </button> --}}
                             </div>
                         </div>
                     </td>
-                    <td class="text-center" style="width: 10% !important;">{{ $item->mobil_tipe_model }}</td>
-                    <td>{{ $item->mobil_tahun }}</td>
+                    <td class="text-center" style="width: 10% !important;">{{ $item->kendaraan_tipe_model }}</td>
+                    <td>{{ $item->kendaraan_tahun }}</td>
                     <td>
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
                                 <button class="btn btn-sm btn-info">
-                                    {{ $item->mobil_jenis_body }}
+                                    {{ $item->kendaraan_jenis_body }}
                                 </button>
                             </div>
                         </div>
@@ -101,7 +103,7 @@
                             </div>
 
                             <div class="modal-body">Apakah anda yakin ingin menghapus item ini? </div>
-                            <form action="{{ route('hapus-mobil', $item->id) }}" method="POST" enctype="multipart/form-data">
+                            <form action="{{ route('hapus-kendaraan', $item->id) }}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="modal-footer">
                                     <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Cancel</button>

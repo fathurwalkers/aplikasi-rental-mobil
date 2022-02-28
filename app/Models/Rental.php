@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Data;
-use App\Models\Mobil;
+use App\Models\Kendaraan;
 
 class Rental extends Model
 {
@@ -20,8 +20,8 @@ class Rental extends Model
         return $this->belongsTo(Data::class);
     }
 
-    public function mobil()
+    public function kendaraan()
     {
-        return $this->belongsTo(Mobil::class);
+        return $this->belongsTo(Kendaraan::class);
     }
 }

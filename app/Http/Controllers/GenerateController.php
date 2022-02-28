@@ -10,7 +10,7 @@ use Faker\Factory as Faker;
 use Illuminate\Support\Arr;
 use App\Models\Login;
 use App\Models\Data;
-use App\Models\Mobil;
+use App\Models\Kendaraan;
 use App\Models\Rental;
 
 class GenerateController extends Controller
@@ -87,7 +87,7 @@ class GenerateController extends Controller
         return redirect()->route('dashboard');
     }
 
-    public function generate_mobil()
+    public function generate_kendaraan()
     {
         $faker                  = Faker::create('id_ID');
         for ($i=0; $i < 40; $i++) {
@@ -110,11 +110,13 @@ class GenerateController extends Controller
                 "SUV", "TRANSPORTER",
                 "VAN"
             ];
-            $arr_kondisi= ["BARU", "LAMA"];
-            $arr_merk= ["TOYOTA","HONDA","DAIHATSU","SUZUKI","MITSUBISHI","KIA","NISSAN","DATSUN"];
+            $arr_kondisi = ["BARU", "LAMA"];
+            $arr_tipe_kendaraan = ["MOBIL", "MOTOR"];
+            $arr_merk = ["TOYOTA","HONDA","DAIHATSU","SUZUKI","MITSUBISHI","KIA","NISSAN","DATSUN"];
             $arr_tahun = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
             $arr_max_mil = [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000];
 
+            $random_tipe_kendaraan = Arr::random($arr_tipe_kendaraan);
             $random_transmisi = Arr::random($arr_transmisi);
             $random_jenis_body = Arr::random($arr_jenis_body);
             $random_tahun = Arr::random($arr_tahun);
@@ -123,16 +125,17 @@ class GenerateController extends Controller
             $random_merk = Arr::random($arr_merk);
             $random_number = Arr::random($arr_number);
 
-            $mobil = new Mobil;
-            $save_mobil = $mobil->create([
-                "mobil_deskripsi" => $faker->paragraph($random_number, false),
-                "mobil_merk" => $random_merk,
-                "mobil_kondisi" => $random_kondisi,
-                "mobil_tipe_model" => "DEFAULT",
-                "mobil_max_mil" => $random_max_mil,
-                "mobil_tahun" => $random_tahun,
-                "mobil_jenis_transmisi" => $random_transmisi,
-                "mobil_jenis_body" => $random_jenis_body,
+            $kendaraan = new Kendaraan;
+            $save_kendaraan = $kendaraan->create([
+                "kendaraan_deskripsi" => $faker->paragraph($random_number, false),
+                "kendaraan_tipe" => $random_tipe_kendaraan,
+                "kendaraan_merk" => $random_merk,
+                "kendaraan_kondisi" => $random_kondisi,
+                "kendaraan_tipe_model" => "DEFAULT",
+                "kendaraan_max_mil" => $random_max_mil,
+                "kendaraan_tahun" => $random_tahun,
+                "kendaraan_jenis_transmisi" => $random_transmisi,
+                "kendaraan_jenis_body" => $random_jenis_body,
                 "created_at" => now(),
                 "updated_at" => now()
             ]);
@@ -143,7 +146,7 @@ class GenerateController extends Controller
     public function chained_generate()
     {
         $this->generate_pengguna();
-        $this->generate_mobil();
+        $this->generate_kendaraan();
         return redirect()->route('dashboard');
     }
 }
