@@ -54,11 +54,12 @@
 @push('js')
 <script src="{{ asset('datatables') }}/datatables.min.js"></script>
 <script>
-    CKEDITOR.replace( 'editor1' );
-    CKEDITOR.document.appendStyleText( '.cke{visibility:hidden;}' );
     $(document).ready(function() {
         $('#example1').DataTable();
-
+            <?php foreach ($kendaraan as $item) { ?>
+            CKEDITOR.replace( "editor<?php echo $item->id; ?>" );
+            <?php } ?>
+            CKEDITOR.document.appendStyleText( '.cke{visibility:visible;}' );
     });
 
     // tinymce.init({

@@ -221,7 +221,7 @@
 
                                     <div class="row">
                                         <div class="col-sm-12 col-md-12 col-lg-12">
-                                            <textarea name="kendaraan_deskripsi" id="editor1">
+                                            <textarea name="kendaraan_deskripsi" id="editor{{ $item->id }}">
                                                 Tuliskan deskripsi kendaraan...
                                             </textarea>
                                         </div>
