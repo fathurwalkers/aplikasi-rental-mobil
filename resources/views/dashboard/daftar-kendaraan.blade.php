@@ -10,22 +10,15 @@
     .cke {
         visibility: visible !important;
     }
-</style>
 
-{{-- TinyMCE Editor  --}}
-{{-- <script src="https://cdn.tiny.cloud/1/0fzrtif8pxlg6kw3rfi13s2t5xzfaiqpavx3fiqci9ysvmva/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> --}}
+    .modal-backdrop.show {
+        display: none !important;
+    }
+</style>
 
 {{-- CKEditor --}}
 <script src="{{ asset('ckeditor') }}/ckeditor.js"></script>
 
-<style>
-    .modal-backdrop.show {
-        display: none !important;
-    }
-    .cke {
-        visibility: visible !important;
-    }
-</style>
 @endpush
 
 @section('content-body')
