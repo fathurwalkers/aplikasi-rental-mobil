@@ -25,7 +25,7 @@
             <li class="nav-item dropdown">
               <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span>Kelola Rental</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="{{ route('daftar-mobil') }}">Daftar Mobil</a></li>
+                <li><a class="nav-link" href="{{ route('daftar-kendaraan') }}">Daftar Kendaraan</a></li>
                 <li><a class="nav-link" href="forms-advanced-form.html">Informasi Rental</a></li>
                 <li><a class="nav-link" href="forms-validation.html">Laporan</a></li>
               </ul>
