@@ -177,6 +177,40 @@
                                         </div>
                                     </div>
 
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="kendaraan_jenis_transmisi">Jenis Transmisi</label>
+                                                <select id="kendaraan_jenis_transmisi" class="form-control" name="kendaraan_jenis_transmisi">
+                                                    <option value="{{ $item->kendaraan_jenis_transmisi }}" selected>{{ $item->kendaraan_jenis_transmisi }}</option>
+                                                    <option value="AUTOMATIC">AUTOMATIC</option>
+                                                    <option value="SEMI-AUTOMATIC">SEMI-AUTOMATIC</option>
+                                                    <option value="MANUAL">MANUAL</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="kendaraan_jenis_body">Body Kendaraan</label>
+                                                <select id="kendaraan_jenis_body" class="form-control" name="kendaraan_jenis_body">
+                                                    <option value="{{ $item->kendaraan_jenis_body }}" selected>{{ $item->kendaraan_jenis_body }}</option>
+                                                    <option value="COMPACT">Compact</option>
+                                                    <option value="CONVERTIBLE">Convertible</option>
+                                                    <option value="COUPLE">Couple</option>
+                                                    <option value="MVP">MVP</option>
+                                                    <option value="OFF-ROAD">Off-Road</option>
+                                                    <option value="SEDAN">Sedan</option>
+                                                    <option value="SEDANO">Sedano</option>
+                                                    <option value="STATION WAGON">Station Wagon</option>
+                                                    <option value="SUV">SUV</option>
+                                                    <option value="TRANSPORTER">Transporter</option>
+                                                    <option value="VAN">Van</option>
+                                                    <option value="LAINNYA">Lainnya...</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <div class="modal-footer">
