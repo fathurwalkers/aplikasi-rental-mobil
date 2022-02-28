@@ -10,15 +10,15 @@
             <li class="menu-header">Beranda</li>
 
             <li class="">
-                <a class="nav-link" href="blank.html"><i class="far fa-square"></i> <span>Beranda</span></a>
+                <a class="nav-link" href="{{ route('dashboard') }}"><i class="far fa-square"></i> <span>Beranda</span></a>
             </li>
 
-            <li class="nav-item dropdown">
+            {{-- <li class="nav-item dropdown">
               <a href="#" class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Kelola Akun</span></a>
               <ul class="dropdown-menu">
                   <li><a class="nav-link" href="index.html">Lihat Informasi Akun</a></li>
               </ul>
-            </li>
+            </li> --}}
 
             <li class="menu-header">Menu</li>
 

@@ -8,7 +8,6 @@
                 <th>Kondisi</th>
                 <th>Jenis Transmisi</th>
                 <th>Tahun</th>
-                <th>Tipe</th>
                 <th>Jenis Body</th>
                 <th>Kelola</th>
             </tr>
@@ -47,7 +46,6 @@
                             </div>
                         </div>
                     </td>
-                    <td class="text-center" style="width: 10% !important;">{{ $item->kendaraan_tipe_model }}</td>
                     <td>{{ $item->kendaraan_tahun }}</td>
                     <td>
                         <div class="row">
@@ -154,6 +152,16 @@
                                     </div>
 
                                     <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                            <div class="form-group">
+                                                <label for="kendaraan_max_mil">Max Mil Kendaraan</label>
+                                                <input type="number" class="form-control" id="kendaraan_max_mil" placeholder="Masukkan Max Mil kendaraan" name="kendaraan_max_mil" value="{{ $item->kendaraan_max_mil }}">
+                                                <small id="kendaraan_max_mil" class="form-text text-muted">Contoh : 100000 </small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
                                         <div class="col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-group">
                                                 <label for="kendaraan_tipe">Tipe Kendaraan</label>
@@ -166,7 +174,7 @@
                                         </div>
                                         <div class="col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-group">
-                                                <label for="kendaraan_kondisi">Tipe Kendaraan</label>
+                                                <label for="kendaraan_kondisi">Kondisi </label>
                                                 <select id="kendaraan_kondisi" class="form-control" name="kendaraan_kondisi">
                                                     <option value="{{ $item->kendaraan_kondisi }}" selected>{{ $item->kendaraan_kondisi }}</option>
                                                     <option value="BAIK">BAIK</option>
@@ -211,12 +219,20 @@
                                         </div>
                                     </div>
 
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                            <textarea name="kendaraan_deskripsi" id="editor1">
+                                                Tuliskan deskripsi kendaraan...
+                                            </textarea>
+                                        </div>
+                                    </div>
+
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Cancel</button>
-                                    <button type="submit" class="btn btn-outline-danger" >
-                                        Delete
+                                    <button type="button" class="btn gray btn-danger" data-dismiss="modal">Batalkan</button>
+                                    <button type="submit" class="btn btn-info" >
+                                        Ubah
                                     </button>
                                 </div>
                             </form>
