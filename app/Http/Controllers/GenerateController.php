@@ -131,7 +131,6 @@ class GenerateController extends Controller
                 "kendaraan_tipe" => $random_tipe_kendaraan,
                 "kendaraan_merk" => $random_merk,
                 "kendaraan_kondisi" => $random_kondisi,
-                "kendaraan_tipe_model" => "DEFAULT",
                 "kendaraan_max_mil" => $random_max_mil,
                 "kendaraan_tahun" => $random_tahun,
                 "kendaraan_jenis_transmisi" => $random_transmisi,

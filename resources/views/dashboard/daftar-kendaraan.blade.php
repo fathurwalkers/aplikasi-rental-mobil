@@ -1,8 +1,8 @@
 @extends('layouts.admin-layout')
 
-@section('title', 'Daftar Mobil - Dashboard')
+@section('title', 'Daftar Kendaraan - Dashboard')
 
-@section('content-header', 'Daftar Mobil')
+@section('content-header', 'Daftar Kendaraan')
 
 @push('css')
 <link rel="stylesheet" href="{{ asset('datatables') }}/datatables.min.css">
@@ -19,7 +19,7 @@
     <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="card">
             <div class="card-body">
-                <x-data-table :mobil="$mobil" />
+                <x-data-table :kendaraan="$kendaraan" />
             </div>
         </div>
     </div>

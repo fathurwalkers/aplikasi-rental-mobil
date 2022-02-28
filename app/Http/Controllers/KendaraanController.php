@@ -25,4 +25,9 @@ class KendaraanController extends Controller
         $findkendaraan->forceDelete();
         return redirect()->route('daftar-kendaraan')->with('status', 'Data telah dihapus!');
     }
+
+    public function update_kendaraan(Request $request, $id)
+    {
+        $kendaraan_id = $id;
+    }
 }

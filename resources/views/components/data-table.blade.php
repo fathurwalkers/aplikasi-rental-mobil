@@ -74,12 +74,12 @@
                                     Lihat
                                 </a>
 
-                                <a class="btn btn-sm btn-primary mr-1 rounded" href="#">
+                                <a class="btn btn-sm btn-primary mr-1 rounded" href="#" data-toggle="modal" data-target="#modalupdate{{ $item->id }}">
                                     <i class="fas fa-cog"></i>
                                     Ubah
                                 </a>
 
-                                <a href="#" class="btn btn-danger rounded btn-sm" data-toggle="modal" data-target="#modaldelete{{ $item->id }}" >
+                                <a href="#" class="btn btn-danger rounded btn-sm" data-toggle="modal" data-target="#modaldelete{{ $item->id }}">
                                     <i class="fas fa-trash"></i>
                                     Hapus
                                 </a>
@@ -90,7 +90,7 @@
 
                 </tr>
 
-                {{-- MODAL --}}
+                {{-- MODAL DELETE --}}
                 <div class="modal fade" id="modaldelete{{ $item->id }}" tabindex="1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -116,7 +116,81 @@
                         </div>
                     </div>
                 </div>
-                {{-- End MODAL --}}
+                {{-- End MODAL DELETE --}}
+
+                {{-- MODAL UPDATE --}}
+                <div class="modal fade" id="modalupdate{{ $item->id }}" tabindex="1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h4 class="modal-title">Ubah Data Kendaraan</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">Silahkan ubah data Kendaraan berikut. </div>
+                            <form action="{{ route('update-kendaraan', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                @csrf
+
+                                <div class="container border-dark">
+
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="kendaraan_merk">Merk Kendaraan</label>
+                                                <input type="text" class="form-control" id="kendaraan_merk" placeholder="Masukkan merk kendaraan" name="kendaraan_merk" value="{{ $item->kendaraan_merk }}">
+                                                <small id="kendaraan_merk" class="form-text text-muted">Contoh : DAIHATSU 2022. </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="kendaraan_tahun">Tahun</label>
+                                                <input type="number" class="form-control" id="kendaraan_tahun" placeholder="Masukkan merk kendaraan" name="kendaraan_tahun" value="{{ intval($item->kendaraan_tahun) }}">
+                                                <small id="kendaraan_tahun" class="form-text text-muted">Contoh : DAIHATSU 2022. </small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="kendaraan_tipe">Tipe Kendaraan</label>
+                                                <select id="kendaraan_tipe" class="form-control" name="kendaraan_tipe">
+                                                    <option value="{{ $item->kendaraan_tipe }}" selected>{{ $item->kendaraan_tipe }}</option>
+                                                    <option value="MOBIL">MOBIL</option>
+                                                    <option value="MOTOR">MOTOR</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="kendaraan_kondisi">Tipe Kendaraan</label>
+                                                <select id="kendaraan_kondisi" class="form-control" name="kendaraan_kondisi">
+                                                    <option value="{{ $item->kendaraan_kondisi }}" selected>{{ $item->kendaraan_kondisi }}</option>
+                                                    <option value="BAIK">BAIK</option>
+                                                    <option value="RUSAK">RUSAK</option>
+                                                    <option value="DALAM PERBAIKAN">DALAM PERBAIKAN</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn btn-outline-danger" >
+                                        Delete
+                                    </button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                {{-- End MODAL UPDATE --}}
 
             @endforeach
 
