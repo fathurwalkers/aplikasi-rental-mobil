@@ -119,6 +119,18 @@ class GenerateController extends Controller
                 "mobil6.jpg",
                 "mobil7.jpg"
             ];
+            $arr_foto_motor = [
+                "motor1.jpg",
+                "motor2.jpg",
+                "motor3.jpg",
+                "motor4.jpg",
+                "motor5.jpg",
+                "motor6.jpg",
+                "motor7.jpg",
+                "motor8.jpg",
+                "motor9.jpg",
+                "motor10.jpg"
+            ];
 
             $arr_kondisi = ["BARU", "LAMA"];
             $arr_status = ["TERSEDIA", "RENTAL", "KOSONG"];
@@ -137,9 +149,19 @@ class GenerateController extends Controller
             $random_number = Arr::random($arr_number);
             $random_status = Arr::random($arr_status);
 
+            switch ($random_tipe_kendaraan) {
+                case 'MOBIL':
+                    $random_gambar_kendaraan = Arr::random($arr_foto_mobil);
+                    break;
+                case 'MOTOR':
+                    $random_gambar_kendaraan = Arr::random($arr_foto_motor);
+                    break;
+            }
+
             $kendaraan = new Kendaraan;
             $save_kendaraan = $kendaraan->create([
                 "kendaraan_deskripsi" => $faker->paragraph($random_number, false),
+                "kendaraan_tipe" => $random_gambar_kendaraan,
                 "kendaraan_tipe" => $random_tipe_kendaraan,
                 "kendaraan_merk" => $random_merk,
                 "kendaraan_kondisi" => $random_kondisi,
