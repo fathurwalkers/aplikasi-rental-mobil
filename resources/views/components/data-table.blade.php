@@ -5,6 +5,7 @@
                 <th>No</th>
                 <th>Merk</th>
                 <th>Tipe Kendaraan</th>
+                <th>Status</th>
                 <th>Kondisi</th>
                 <th>Jenis Transmisi</th>
                 <th>Tahun</th>
@@ -19,6 +20,32 @@
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $item->kendaraan_merk }}</td>
                     <td>{{ $item->kendaraan_tipe }}</td>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
+                                @switch($item->kendaraan_status)
+                                    @case("TERSEDIA")
+                                        <button class="btn btn-sm btn-success">
+                                            TERSEDIA
+                                        </button>
+                                        @break
+                                    @case("RENTAL")
+                                        <button class="btn btn-sm btn-info">
+                                            DALAM PENYEWAAN
+                                        </button>
+                                        @break
+                                    @case("KOSONG")
+                                        <button class="btn btn-sm btn-danger">
+                                            TIDAK TERSEDIA
+                                        </button>
+                                        @break
+                                @endswitch
+                                {{-- <button class="btn btn-sm btn-success">
+                                    {{ $item->kendaraan_merk }}
+                                </button> --}}
+                            </div>
+                        </div>
+                    </td>
                     <td>{{ $item->kendaraan_kondisi }}</td>
                     <td>
                         <div class="row">

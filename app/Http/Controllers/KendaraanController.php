@@ -53,6 +53,7 @@ class KendaraanController extends Controller
                 "kendaraan_kondisi" => $validateData["kendaraan_kondisi"],
                 "kendaraan_max_mil" => $validateData["kendaraan_max_mil"],
                 "kendaraan_tahun" => $validateData["kendaraan_tahun"],
+                "kendaraan_status" => $validateData["kendaraan_status"],
                 "kendaraan_jenis_transmisi" => $validateData["kendaraan_jenis_transmisi"],
                 "kendaraan_jenis_body" => $validateData["kendaraan_jenis_body"],
                 "updated_at" => now()
