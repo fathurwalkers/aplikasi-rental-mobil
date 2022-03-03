@@ -111,6 +111,7 @@ class GenerateController extends Controller
                 "VAN"
             ];
             $arr_kondisi = ["BARU", "LAMA"];
+            $arr_status = ["TERSEDIA", "RENTAL", "KOSONG"];
             $arr_tipe_kendaraan = ["MOBIL", "MOTOR"];
             $arr_merk = ["TOYOTA","HONDA","DAIHATSU","SUZUKI","MITSUBISHI","KIA","NISSAN","DATSUN"];
             $arr_tahun = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
@@ -124,6 +125,7 @@ class GenerateController extends Controller
             $random_kondisi = Arr::random($arr_kondisi);
             $random_merk = Arr::random($arr_merk);
             $random_number = Arr::random($arr_number);
+            $random_status = Arr::random($arr_status);
 
             $kendaraan = new Kendaraan;
             $save_kendaraan = $kendaraan->create([
@@ -133,6 +135,7 @@ class GenerateController extends Controller
                 "kendaraan_kondisi" => $random_kondisi,
                 "kendaraan_max_mil" => $random_max_mil,
                 "kendaraan_tahun" => $random_tahun,
+                "kendaraan_status" => $random_status,
                 "kendaraan_jenis_transmisi" => $random_transmisi,
                 "kendaraan_jenis_body" => $random_jenis_body,
                 "created_at" => now(),

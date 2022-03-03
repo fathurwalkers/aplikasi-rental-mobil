@@ -41,6 +41,7 @@ class KendaraanController extends Controller
                 "kendaraan_kondisi" => 'required|filled',
                 "kendaraan_max_mil" => 'required',
                 "kendaraan_tahun" => 'required',
+                "kendaraa_status" => 'required!filled',
                 "kendaraan_jenis_transmisi" => 'required|filled',
                 "kendaraan_jenis_body" => 'required|filled',
             ]);

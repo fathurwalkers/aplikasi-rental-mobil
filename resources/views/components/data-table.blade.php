@@ -9,7 +9,7 @@
                 <th>Jenis Transmisi</th>
                 <th>Tahun</th>
                 <th>Jenis Body</th>
-                <th>Kelola</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                     </td>
-                    <td>{{ $item->kendaraan_tahun }}</td>
+                    <td class="text-center text-bold">{{ $item->kendaraan_tahun }}</td>
                     <td>
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">

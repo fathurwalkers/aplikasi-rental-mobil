@@ -17,6 +17,7 @@ class CreateKendaraansTable extends Migration
             $table->string('kendaraan_kondisi')->nullable(); // BAIK / RUSAK / DALAM PERBAIKAN
             $table->string('kendaraan_max_mil')->nullable();
             $table->string('kendaraan_tahun')->nullable(); //
+            $table->string('kendaraan_status')->nullable(); // TERSEDIA - RENTAL - KOSONG
             $table->string('kendaraan_jenis_transmisi')->nullable(); // AUTOMATIC / MANUAL / SEMI-AUTOMATIC
             $table->string('kendaraan_jenis_body')->nullable(); // COMPACT / CONVERTIBLE / COUPLE / MVP / OFF-ROAD / LAINNYA / SEDAN / SEDANO / STATION WAGON / SUV / TRANSPORTER / VAN
 
