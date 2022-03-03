@@ -24,6 +24,11 @@ Route::group(["prefix" => "/dashboard", "middleware" => "ceklogin"], function ()
     Route::post('/daftar-kendaraan/hapus/{id}', [KendaraanController::class, 'hapus_kendaraan'])->name('hapus-kendaraan');
 });
 
+// HOME ROUTE
+Route::group(["prefix" => "/"], function () {
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+});
+
 // GENERATE ROUTE
 Route::get('/generate/chained-generate', [GenerateController::class, 'chained_generate'])->name('chained-generate');
 Route::get('/generate/customer', [GenerateController::class, 'generate_pengguna'])->name('generate-customer');
