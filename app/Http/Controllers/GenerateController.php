@@ -110,15 +110,16 @@ class GenerateController extends Controller
                 "SUV", "TRANSPORTER",
                 "VAN"
             ];
-            $arr_foto = [
+            $arr_foto_mobil = [
                 "mobil1.jpg",
                 "mobil2.jpg",
                 "mobil3.jpg",
                 "mobil4.jpg",
                 "mobil5.jpg",
                 "mobil6.jpg",
-                "mobil7.jpg",
+                "mobil7.jpg"
             ];
+
             $arr_kondisi = ["BARU", "LAMA"];
             $arr_status = ["TERSEDIA", "RENTAL", "KOSONG"];
             $arr_tipe_kendaraan = ["MOBIL", "MOTOR"];
