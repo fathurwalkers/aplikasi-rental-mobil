@@ -67,7 +67,7 @@
                         <div class="row">
                             <div class="col-sm-12 col-md-12 col-lg-12 d-flex mx-auto justify-content-center">
 
-                                <a class="btn btn-sm btn-info mr-1 rounded" href="#">
+                                <a class="btn btn-sm btn-info mr-1 rounded" href="#" data-toggle="modal" data-target="#modallihat{{ $item->id }}">
                                     <i class="fas fa-info-circle"></i>
                                     Lihat
                                 </a>
@@ -87,6 +87,57 @@
                     </td>
 
                 </tr>
+
+                {{-- MODAL UPDATE --}}
+                <div class="modal fade" id="modallihat{{ $item->id }}" tabindex="1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+
+                            <div class="modal-header">
+                                <h4 class="modal-title">Informasi Kendaraan : " {{ $item->kendaraan_merk }} "</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4 col-lg-4">
+                                        <h5 class="fix-text">Merk </h5 class="fix-text">
+                                        <h5 class="fix-text">Tipe Kendaraan </h5 class="fix-text">
+                                        <h5 class="fix-text">Kondisi </h5 class="fix-text">
+                                        <h5 class="fix-text">Max Mil </h5 class="fix-text">
+                                        <h5 class="fix-text">Tahun </h5 class="fix-text">
+                                        <h5 class="fix-text">Jenis Transmisi </h5 class="fix-text">
+                                        <h5 class="fix-text">Jenis Body </h5 class="fix-text">
+                                    </div>
+                                    <div class="col-sm-8 col-md-8 col-lg-8">
+                                        <h5 class="fix-text">: {{ $item->kendaraan_merk }} </h5 class="fix-text">
+                                        <h5 class="fix-text">: {{ $item->kendaraan_tipe }} </h5 class="fix-text">
+                                        <h5 class="fix-text">: {{ $item->kendaraan_kondisi }} </h5 class="fix-text">
+                                        <h5 class="fix-text">: {{ $item->kendaraan_max_mil }} </h5 class="fix-text">
+                                        <h5 class="fix-text">: {{ $item->kendaraan_tahun }} </h5 class="fix-text">
+                                        <h5 class="fix-text">: {{ $item->kendaraan_jenis_transmisi }} </h5 class="fix-text">
+                                        <h5 class="fix-text">: {{ $item->kendaraan_jenis_body }} </h5 class="fix-text">
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-sm-8 col-md-8 col-lg-8">
+                                        <h5>Deskripsi : </h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12 col-lg-12 text-justify">
+                                        {!! $item->kendaraan_deskripsi !!}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                            <button type="button" class="btn gray btn-info" data-dismiss="modal">TUTUP</button>
+                        </div>
+                    </div>
+                </div>
 
                 {{-- MODAL DELETE --}}
                 <div class="modal fade" id="modaldelete{{ $item->id }}" tabindex="1" role="dialog" aria-hidden="true">

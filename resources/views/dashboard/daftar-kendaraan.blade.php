@@ -14,6 +14,10 @@
     .modal-backdrop.show {
         display: none !important;
     }
+
+    .fix-text {
+        font-size: 15px;
+    }
 </style>
 
 {{-- CKEditor --}}
