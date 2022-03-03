@@ -115,7 +115,7 @@
 
                 </tr>
 
-                {{-- MODAL UPDATE --}}
+                {{-- MODAL LIHAT --}}
                 <div class="modal fade" id="modallihat{{ $item->id }}" tabindex="1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -161,7 +161,8 @@
                             </div>
 
                             <div class="modal-footer">
-                            <button type="button" class="btn gray btn-info" data-dismiss="modal">TUTUP</button>
+                                <button type="button" class="btn gray btn-info" data-dismiss="modal">TUTUP</button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -230,11 +231,22 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-sm-12 col-md-12 col-lg-12">
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
                                             <div class="form-group">
                                                 <label for="kendaraan_max_mil">Max Mil Kendaraan</label>
                                                 <input type="number" class="form-control" id="kendaraan_max_mil" placeholder="Masukkan Max Mil kendaraan" name="kendaraan_max_mil" value="{{ $item->kendaraan_max_mil }}">
                                                 <small id="kendaraan_max_mil" class="form-text text-muted">Contoh : 100000 </small>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <div class="form-group">
+                                                <label for="kendaraan_status">Status Penyewaan</label>
+                                                <select id="kendaraan_status" class="form-control" name="kendaraan_status">
+                                                    <option value="{{ $item->kendaraan_status }}" selected>{{ $item->kendaraan_status }}</option>
+                                                    <option value="TERSEDIA">Tersedia</option>
+                                                    <option value="RENTAL">Dalam Penyewaan</option>
+                                                    <option value="KOSONG">Tidak Tersedia</option>
+                                                </select>
                                             </div>
                                         </div>
                                     </div>
