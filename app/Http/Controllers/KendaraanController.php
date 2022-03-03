@@ -36,6 +36,7 @@ class KendaraanController extends Controller
             $kendaraan_nama = $kendaraan->kendaraan_merk;
             $validateData = $request->validate([
                 "kendaraan_deskripsi" => 'required',
+                "kendaraan_foto" => '',
                 "kendaraan_tipe" => 'required|filled',
                 "kendaraan_merk" => 'required',
                 "kendaraan_kondisi" => 'required|filled',
@@ -48,6 +49,7 @@ class KendaraanController extends Controller
 
             $kendaraan->update([
                 "kendaraan_deskripsi" => $validateData["kendaraan_deskripsi"],
+                "kendaraan_foto" => $validateData["kendaraan_foto"],
                 "kendaraan_tipe" => $validateData["kendaraan_tipe"],
                 "kendaraan_merk" => $validateData["kendaraan_merk"],
                 "kendaraan_kondisi" => $validateData["kendaraan_kondisi"],
