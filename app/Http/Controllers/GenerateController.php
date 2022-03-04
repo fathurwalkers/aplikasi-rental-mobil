@@ -18,7 +18,7 @@ class GenerateController extends Controller
     public function generate_pengguna()
     {
         $faker                  = Faker::create('id_ID');
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 25; $i++) {
 
             // DATA PENGGUNA
             $arr_jenis_kelamin  = ["L", "P"];
@@ -90,7 +90,7 @@ class GenerateController extends Controller
     public function generate_kendaraan()
     {
         $faker                  = Faker::create('id_ID');
-        for ($i=0; $i < 40; $i++) {
+        for ($i=0; $i < 50; $i++) {
             $arr_number  = [1, 2, 3, 4, 5];
             $arr_transmisi = [
                 "AUTOMATIC",
@@ -161,7 +161,7 @@ class GenerateController extends Controller
             $kendaraan = new Kendaraan;
             $save_kendaraan = $kendaraan->create([
                 "kendaraan_deskripsi" => $faker->paragraph($random_number, false),
-                "kendaraan_tipe" => $random_gambar_kendaraan,
+                "kendaraan_foto" => $random_gambar_kendaraan,
                 "kendaraan_tipe" => $random_tipe_kendaraan,
                 "kendaraan_merk" => $random_merk,
                 "kendaraan_kondisi" => $random_kondisi,
