@@ -10,8 +10,7 @@
                     <th>Status</th>
                     <th>Kondisi</th>
                     <th>Jenis Transmisi</th>
-                    <th>Tahun</th>
-                    <th>Jenis Body</th>
+                    <th>Harga Sewa</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
@@ -75,8 +74,8 @@
                                 </div>
                             </div>
                         </td>
-                        <td class="text-center text-bold">{{ $item->kendaraan_tahun }}</td>
-                        <td>
+                        <td class="text-center text-bold">{{ $item->kendaraan_harga_sewa }}</td>
+                        {{-- <td>
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto button-text-fix">
                                     <button class="btn btn-sm btn-info">
@@ -84,7 +83,7 @@
                                     </button>
                                 </div>
                             </div>
-                        </td>
+                        </td> --}}
 
                         {{-- <td>
                             @foreach ($item->login as $item2)
@@ -216,18 +215,25 @@
                                     <div class="container border-dark">
 
                                         <div class="row">
-                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <div class="col-sm-4 col-md-4 col-lg-4">
                                                 <div class="form-group">
                                                     <label for="kendaraan_merk">Merk Kendaraan</label>
                                                     <input type="text" class="form-control" id="kendaraan_merk" placeholder="Masukkan merk kendaraan" name="kendaraan_merk" value="{{ $item->kendaraan_merk }}">
                                                     <small id="kendaraan_merk" class="form-text text-muted">Contoh : DAIHATSU 2022. </small>
                                                 </div>
                                             </div>
-                                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                            <div class="col-sm-4 col-md-4 col-lg-4">
                                                 <div class="form-group">
                                                     <label for="kendaraan_tahun">Tahun</label>
                                                     <input type="number" class="form-control" id="kendaraan_tahun" placeholder="Masukkan merk kendaraan" name="kendaraan_tahun" value="{{ intval($item->kendaraan_tahun) }}">
                                                     <small id="kendaraan_tahun" class="form-text text-muted">Contoh : DAIHATSU 2022. </small>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="kendaraan_harga_sewa">Harga Sewa</label>
+                                                    <input type="number" class="form-control" id="kendaraan_harga_sewa" placeholder="Masukkan merk kendaraan" name="kendaraan_harga_sewa" value="{{ $item->kendaraan_harga_sewa }}">
+                                                    <small id="kendaraan_harga_sewa" class="form-text text-muted">Contoh : 200000 </small>
                                                 </div>
                                             </div>
                                         </div>
