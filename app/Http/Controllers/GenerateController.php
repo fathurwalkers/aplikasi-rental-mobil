@@ -138,6 +138,7 @@ class GenerateController extends Controller
             $arr_merk = ["TOYOTA","HONDA","DAIHATSU","SUZUKI","MITSUBISHI","KIA","NISSAN","DATSUN"];
             $arr_tahun = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
             $arr_max_mil = [10000, 20000, 30000, 40000, 50000, 60000, 70000, 80000, 90000, 100000];
+            $arr_nomor = [6, 7, 5];
 
             $random_tipe_kendaraan = Arr::random($arr_tipe_kendaraan);
             $random_transmisi = Arr::random($arr_transmisi);
@@ -148,6 +149,9 @@ class GenerateController extends Controller
             $random_merk = Arr::random($arr_merk);
             $random_number = Arr::random($arr_number);
             $random_status = Arr::random($arr_status);
+            $random_nomor = Arr::random($arr_nomor);
+
+            $random_harga_sewa = $faker->randomNumber($random_nomor);
 
             switch ($random_tipe_kendaraan) {
                 case 'MOBIL':
@@ -162,6 +166,7 @@ class GenerateController extends Controller
             $save_kendaraan = $kendaraan->create([
                 "kendaraan_deskripsi" => $faker->paragraph($random_number, false),
                 "kendaraan_foto" => $random_gambar_kendaraan,
+                "kendaraan_harga_sewa" => $random_harga_sewa,
                 "kendaraan_tipe" => $random_tipe_kendaraan,
                 "kendaraan_merk" => $random_merk,
                 "kendaraan_kondisi" => $random_kondisi,

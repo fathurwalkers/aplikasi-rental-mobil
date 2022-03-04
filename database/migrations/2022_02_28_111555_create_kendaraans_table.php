@@ -13,6 +13,7 @@ class CreateKendaraansTable extends Migration
 
             $table->text('kendaraan_deskripsi')->nullable();
             $table->string('kendaraan_foto')->nullable();
+            $table->string('kendaraan_harga_sewa')->nullable();
             $table->string('kendaraan_tipe')->nullable(); // MOBIL - MOTOR
             $table->string('kendaraan_merk')->nullable(); //
             $table->string('kendaraan_kondisi')->nullable(); // BAIK / RUSAK / DALAM PERBAIKAN
