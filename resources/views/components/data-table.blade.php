@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                         </td>
-                        <td class="text-center text-bold">{{ $item->kendaraan_harga_sewa }}</td>
+                        <td class="text-center text-bold">{{ "Rp " . number_format($item->kendaraan_harga_sewa,0,',','.')}}</td>
                         {{-- <td>
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto button-text-fix">
