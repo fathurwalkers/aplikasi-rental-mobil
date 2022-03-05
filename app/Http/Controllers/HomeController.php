@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Kendaraan;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -11,6 +12,9 @@ class HomeController extends Controller
 {
     public function index()
     {
-        return view('home.index');
+        $kendaraan = Kendaraan::latest()->get();
+        return view('home.index', [
+            'kendaraan' => $kendaraan
+        ]);
     }
 }

@@ -132,6 +132,7 @@
                                     <div class="row">
                                         <div class="col-sm-4 col-md-4 col-lg-4">
                                             <h5 class="fix-text">Merk </h5 class="fix-text">
+                                            <h5 class="fix-text">Harga Sewa </h5 class="fix-text">
                                             <h5 class="fix-text">Tipe Kendaraan </h5 class="fix-text">
                                             <h5 class="fix-text">Kondisi </h5 class="fix-text">
                                             <h5 class="fix-text">Max Mil </h5 class="fix-text">
@@ -141,6 +142,7 @@
                                         </div>
                                         <div class="col-sm-8 col-md-8 col-lg-8">
                                             <h5 class="fix-text">: {{ $item->kendaraan_merk }} </h5 class="fix-text">
+                                            <h5 class="fix-text">: {{ $item->kendaraan_harga_sewa }} </h5 class="fix-text">
                                             <h5 class="fix-text">: {{ $item->kendaraan_tipe }} </h5 class="fix-text">
                                             <h5 class="fix-text">: {{ $item->kendaraan_kondisi }} </h5 class="fix-text">
                                             <h5 class="fix-text">: {{ $item->kendaraan_max_mil }} </h5 class="fix-text">
