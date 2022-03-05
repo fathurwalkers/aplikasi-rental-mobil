@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $kendaraan = Kendaraan::latest()->get();
+        $kendaraan = Kendaraan::latest()->paginate(6);
         return view('home.index', [
             'kendaraan' => $kendaraan
         ]);
