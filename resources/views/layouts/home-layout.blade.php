@@ -155,9 +155,9 @@
     <div class="site-section bg-light">
         <div class="container">
             <div class="row">
-                <div class="col-lg-7">
-                    <h2 class="section-heading"><strong>Car Listings</strong></h2>
-                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <h2 class="section-heading text-center"><strong>Daftar Kendaraan</strong></h2>
+                    <p class="mb-5 text-center">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                 </div>
             </div>
 
@@ -190,7 +190,7 @@
                             </div>
                             <div>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos eos at eum, voluptatem quibusdam.</p>
-                                <p><a href="#" class="btn btn-primary btn-sm">Rent Now</a></p>
+                                <p><a href="#" class="btn btn-primary btn-sm">Pesan sekarang</a></p>
                             </div>
                         </div>
                     </div>
@@ -204,95 +204,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-7">
-            <h2 class="section-heading"><strong>Features</strong></h2>
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-lg-4 mb-5">
-            <div class="service-1 dark">
-              <span class="service-1-icon">
-                <span class="icon-home"></span>
-              </span>
-              <div class="service-1-contents">
-                <h3>Lorem ipsum dolor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-                <p class="mb-0"><a href="#">Learn more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-5">
-            <div class="service-1 dark">
-              <span class="service-1-icon">
-                <span class="icon-gear"></span>
-              </span>
-              <div class="service-1-contents">
-                <h3>Lorem ipsum dolor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-                <p class="mb-0"><a href="#">Learn more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-5">
-            <div class="service-1 dark">
-              <span class="service-1-icon">
-                <span class="icon-watch_later"></span>
-              </span>
-              <div class="service-1-contents">
-                <h3>Lorem ipsum dolor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-                <p class="mb-0"><a href="#">Learn more</a></p>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 mb-5">
-            <div class="service-1 dark">
-              <span class="service-1-icon">
-                <span class="icon-verified_user"></span>
-              </span>
-              <div class="service-1-contents">
-                <h3>Lorem ipsum dolor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-                <p class="mb-0"><a href="#">Learn more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-5">
-            <div class="service-1 dark">
-              <span class="service-1-icon">
-                <span class="icon-video_library"></span>
-              </span>
-              <div class="service-1-contents">
-                <h3>Lorem ipsum dolor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-                <p class="mb-0"><a href="#">Learn more</a></p>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-5">
-            <div class="service-1 dark">
-              <span class="service-1-icon">
-                <span class="icon-vpn_key"></span>
-              </span>
-              <div class="service-1-contents">
-                <h3>Lorem ipsum dolor</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-                <p class="mb-0"><a href="#">Learn more</a></p>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <div class="site-section bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7">
-            <h2 class="section-heading"><strong>Testimonials</strong></h2>
+            <h2 class="section-heading"><strong>Testimonial</strong></h2>
             <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
           </div>
         </div>
@@ -343,22 +255,22 @@
       </div>
     </div>
 
-    <div class="site-section bg-primary py-5">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-7 mb-4 mb-md-0">
-            <h2 class="mb-0 text-white">What are you waiting for?</h2>
-            <p class="mb-0 opa-7">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, laboriosam.</p>
-          </div>
-          <div class="col-lg-5 text-md-right">
-            <a href="#" class="btn btn-primary btn-white">Rent a car now</a>
-          </div>
+    <div class="site-section bg-primary py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 mb-4 mb-md-0">
+                    <h2 class="mb-0 text-white">Ada kendala atau Pertanyaan seputar Rental kami? </h2>
+                    <p class="mb-0 opa-7">Jika ada sebuah kendala ataupun masalah terkait rental kami, silahkan menuju Whatsapp kami untuk keperluan pelaporan. </p>
+                </div>
+                <div class="col-lg-5 text-md-right">
+                    <a href="#" class="btn btn-primary btn-white">Chat sekarang</a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
 
 
-      <footer class="site-footer">
+    <footer class="site-footer">
         <div class="container">
           <div class="row">
             <div class="col-lg-3">
@@ -377,7 +289,7 @@
               <div class="border-top pt-1">
                 <p>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>.Downloaded from <a href="https://themeslab.org/" target="_blank">Themeslab</a>
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a> and Forged by <a href="https://themeslab.org/" target="_blank">Tech.ID</a>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               </p>
               </div>
@@ -385,7 +297,7 @@
 
           </div>
         </div>
-      </footer>
+    </footer>
 
     </div>
 
