@@ -151,6 +151,7 @@ class GenerateController extends Controller
             $random_status = Arr::random($arr_status);
             $random_nomor = Arr::random($arr_nomor);
 
+            $random_kode_kendaraan = "KDR-" . strtoupper(Str::random(5));
             $random_harga_sewa = $faker->randomNumber($random_nomor);
 
             switch ($random_tipe_kendaraan) {
@@ -165,6 +166,7 @@ class GenerateController extends Controller
             $kendaraan = new Kendaraan;
             $save_kendaraan = $kendaraan->create([
                 "kendaraan_deskripsi" => $faker->paragraph($random_number, false),
+                "kendaraan_kode" => $random_kode_kendaraan,
                 "kendaraan_foto" => $random_gambar_kendaraan,
                 "kendaraan_harga_sewa" => $random_harga_sewa,
                 "kendaraan_tipe" => $random_tipe_kendaraan,

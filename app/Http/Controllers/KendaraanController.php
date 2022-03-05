@@ -47,8 +47,11 @@ class KendaraanController extends Controller
                 "kendaraan_jenis_body" => 'required|filled',
             ]);
 
+            $kode_kendaraan = "KDR-" . strtoupper(Str::random(5));
+
             $kendaraan->update([
                 "kendaraan_deskripsi" => $validateData["kendaraan_deskripsi"],
+                "kendaraan_kode" => $kode_kendaraan,
                 "kendaraan_foto" => $gambar,
                 "kendaraan_harga_sewa" => $validateData["kendaraan_harga_sewa"],
                 "kendaraan_tipe" => $validateData["kendaraan_tipe"],

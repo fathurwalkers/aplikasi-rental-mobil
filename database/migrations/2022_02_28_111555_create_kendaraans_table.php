@@ -12,6 +12,7 @@ class CreateKendaraansTable extends Migration
             $table->id();
 
             $table->text('kendaraan_deskripsi')->nullable();
+            $table->string('kendaraan_kode')->nullable();
             $table->string('kendaraan_foto')->nullable();
             $table->string('kendaraan_harga_sewa')->nullable();
             $table->string('kendaraan_tipe')->nullable(); // MOBIL - MOTOR

@@ -6,6 +6,7 @@
                 <tr class="text-center">
                     <th>No</th>
                     <th>Merk</th>
+                    <th>Kode</th>
                     <th>Tipe Kendaraan</th>
                     <th>Status</th>
                     <th>Kondisi</th>
@@ -20,6 +21,7 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td class="">{{ $item->kendaraan_merk }}</td>
+                        <td class="">{{ $item->kendaraan_kode }}</td>
                         <td>{{ $item->kendaraan_tipe }}</td>
                         <td>
                             <div class="row">
