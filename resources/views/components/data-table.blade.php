@@ -5,7 +5,6 @@
             <thead class="thead-dark">
                 <tr class="text-center">
                     <th>No</th>
-                    <th>Kode</th>
                     <th>Merk</th>
                     <th>Kode</th>
                     <th>Tipe Kendaraan</th>
@@ -21,8 +20,8 @@
                 @foreach ($kendaraan as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td class="">{{ $item->kendaraan_kode }}</td>
                         <td class="">{{ $item->kendaraan_merk }}</td>
+                        <td class="">{{ $item->kendaraan_kode }}</td>
                         <td>{{ $item->kendaraan_tipe }}</td>
                         <td>
                             <div class="row">
@@ -87,13 +86,6 @@
                                 </div>
                             </div>
                         </td> --}}
-
-                        {{-- <td>
-                            @foreach ($item->login as $item2)
-                                {{ $item2->login_username }}
-                            @endforeach
-                        </td> --}}
-
                         <td style="width: 25%">
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12 d-flex mx-auto justify-content-center">
@@ -116,7 +108,6 @@
                                 </div>
                             </div>
                         </td>
-
                     </tr>
 
                     {{-- MODAL LIHAT --}}
