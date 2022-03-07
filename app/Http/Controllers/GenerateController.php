@@ -191,18 +191,34 @@ class GenerateController extends Controller
             $kode_penyewaan     = "RTL-" . strtoupper(Str::random(5));
             $kendaraan          = Kendaraan::all()->toArray();
             $login              = Login::where('login_level', 'customer')->toArray();
+            $arr_satuan_waktu   = ["HARI", "BULAN", "JAM"];
+            $arr_status         = ["READY","PENDING","BERLANGSUNG"];
+
 
             $random_kendaraan   = Arr::random($kendaraan);
             $random_login       = Arr::random($login);
+            $random_satuan_waktu = Arr::random($arr_satuan_waktu);
+            $random_status = Arr::random($arr_status);
+
+            switch ($random_satuan_waktu) {
+                case 'HARI':
+                    $durasi = $faker->numberBetween(1,31);
+                    break;
+                case 'BULAN':
+                    $durasi = $faker->numberBetween(1,12);
+                    break;
+                case 'JAM':
+                    $durasi = $faker->numberBetween(1,24);
+                    break;
+            }
 
             $penyewaan          = new Rental;
             $save_penyewaan     = $penyewaan->create([
                 "rental_kode"               => $kode_penyewaan,
-                "rental_waktu_pemesanan"    => ,
-                "rental_durasi"             => ,
-                "rental_satuan_waktu"       => ,
-                "rental_info"               => ,
-                "rental_status"             => ,
+                "rental_waktu_pemesanan"    => now(),
+                "rental_durasi"             => $durasi,
+                "rental_satuan_waktu"       => $random_satuan_waktu,
+                "rental_status"             => $random_status,
                 "rental_bukti_ktp"          => ,
                 "rental_bukti_lain"         => ,
                 "created_at"                => now(),
