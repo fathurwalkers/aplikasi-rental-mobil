@@ -29,12 +29,12 @@
                                             @break
                                         @case("PENDING")
                                             <button class="btn btn-sm btn-info button-text-fix">
-                                                DALAM PENYEWAAN
+                                                PENDING
                                             </button>
                                             @break
                                         @case("BERLANGSUNG")
                                             <button class="btn btn-sm btn-danger button-text-fix">
-                                                TIDAK TERSEDIA
+                                                SEDANG BERLANGSUNG
                                             </button>
                                             @break
                                     @endswitch
@@ -44,34 +44,6 @@
                                 </div>
                             </div>
                         </td>
-                        <td>{{ $item->kendaraan_kondisi }}</td>
-                        <td>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                    @switch($item->kendaraan_jenis_transmisi)
-                                        @case("AUTOMATIC")
-                                            <button class="btn btn-sm btn-success button-text-fix">
-                                                {{ $item->kendaraan_jenis_transmisi }}
-                                            </button>
-                                            @break
-                                        @case("SEMI-AUTOMATIC")
-                                            <button class="btn btn-sm btn-primary button-text-fix">
-                                                {{ $item->kendaraan_jenis_transmisi }}
-                                            </button>
-                                            @break
-                                        @case("MANUAL")
-                                            <button class="btn btn-sm btn-info button-text-fix">
-                                                {{ $item->kendaraan_jenis_transmisi }}
-                                            </button>
-                                            @break
-                                    @endswitch
-                                    {{-- <button class="btn btn-sm btn-success">
-                                        {{ $item->kendaraan_merk }}
-                                    </button> --}}
-                                </div>
-                            </div>
-                        </td>
-
                         {{-- Button  --}}
                         <td style="width: 25%">
                             <div class="row">

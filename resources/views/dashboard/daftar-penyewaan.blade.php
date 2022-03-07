@@ -61,7 +61,7 @@
     <div class="col-sm-12 col-md-12 col-lg-12">
         <div class="card">
             <div class="card-body">
-                <x-data-table :penyewaan="$penyewaan" />
+                <x-data-table-penyewaan :penyewaan="$penyewaan" />
             </div>
         </div>
     </div>
@@ -73,16 +73,6 @@
 <script>
     $(document).ready(function() {
         $('#example1').DataTable();
-            <?php foreach ($kendaraan as $item) { ?>
-            CKEDITOR.replace( "editor<?php echo $item->id; ?>" );
-            <?php } ?>
-            CKEDITOR.document.appendStyleText( '.cke{visibility:visible;}' );
     });
-
-    // tinymce.init({
-    //   selector: 'textarea',
-    //   plugins: 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-    //   toolbar_mode: 'floating',
-    // });
 </script>
 @endpush
