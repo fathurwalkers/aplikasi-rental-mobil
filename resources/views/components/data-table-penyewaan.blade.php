@@ -16,24 +16,23 @@
                 @foreach ($penyewaan as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td class="">{{ $item->kendaraan_merk }}</td>
-                        <td class="">{{ $item->kendaraan_kode }}</td>
-                        <td>{{ $item->kendaraan_tipe }}</td>
+                        <td class="">{{ $item->rental_kode }}</td>
+                        <td class="">{{ intval($item->rental_durasi) }} ( {{ $item->rental_satuan_waktu }} )</td>
                         <td>
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                    @switch($item->kendaraan_status)
-                                        @case("TERSEDIA")
+                                    @switch($item->rental_status)
+                                        @case("SELESAI")
                                             <button class="btn btn-sm btn-success button-text-fix">
-                                                TERSEDIA
+                                                SELESAI
                                             </button>
                                             @break
-                                        @case("RENTAL")
+                                        @case("PENDING")
                                             <button class="btn btn-sm btn-info button-text-fix">
                                                 DALAM PENYEWAAN
                                             </button>
                                             @break
-                                        @case("KOSONG")
+                                        @case("BERLANGSUNG")
                                             <button class="btn btn-sm btn-danger button-text-fix">
                                                 TIDAK TERSEDIA
                                             </button>
