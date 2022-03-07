@@ -30,7 +30,6 @@
               <ul class="dropdown-menu">
                 <li><a class="nav-link" href="{{ route('daftar-kendaraan') }}"> Kelola Kendaraan </a></li>
                 <li><a class="nav-link" href="{{ route('daftar-penyewaan') }}"> Kelola Penyewaan </a></li>
-                <li><a class="nav-link" href="forms-validation.html"> Laporan </a></li>
               </ul>
             </li>
 
