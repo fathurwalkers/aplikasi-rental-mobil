@@ -4,6 +4,10 @@
 
 @section('content-header', 'Daftar Kendaraan')
 
+@section('content-header-button')
+<button class="btn btn-info btn-md ml-auto mr-2">Tambah Data</button>
+@endsection
+
 @push('css')
 <link rel="stylesheet" href="{{ asset('datatables') }}/datatables.min.css">
 <style>

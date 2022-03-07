@@ -37,7 +37,8 @@
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>@yield('content-header')</h1>
+            <h1 class="mr-auto">@yield('content-header')</h1>
+            @yield('content-header-button')
           </div>
 
           <div class="section-body">
