@@ -187,16 +187,15 @@ class GenerateController extends Controller
     public function generate_penyewaan()
     {
         $faker                  = Faker::create('id_ID');
-        for ($i=0; $i < 50; $i++) {
+        for ($i=0; $i < 5; $i++) {
             $kode_penyewaan     = "RTL-" . strtoupper(Str::random(5));
             $kendaraan          = Kendaraan::all()->toArray();
-            $login              = Data::where('login_level', 'customer')->toArray();
+            $data              = Data::all()->toArray();
             $arr_satuan_waktu   = ["HARI", "BULAN", "JAM"];
             $arr_status         = ["READY","PENDING","BERLANGSUNG"];
 
-
             $random_kendaraan   = Arr::random($kendaraan);
-            $random_login       = Arr::random($login);
+            $random_login       = Arr::random($data);
             $random_satuan_waktu = Arr::random($arr_satuan_waktu);
             $random_status = Arr::random($arr_status);
 
@@ -227,9 +226,9 @@ class GenerateController extends Controller
                 "created_at"                => now(),
                 "updated_at"                => now()
             ]);
-            $save_penyewaan->save();
             $save_penyewaan->data()->associate($data["id"]);
             $save_penyewaan->kendaraan()->associate($kendaraan["id"]);
+            $save_penyewaan->save();
         }
     }
 
@@ -237,6 +236,7 @@ class GenerateController extends Controller
     {
         $this->generate_pengguna();
         $this->generate_kendaraan();
+        $this->generate_penyewaan();
         return redirect()->route('dashboard');
     }
 }
