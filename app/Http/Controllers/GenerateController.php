@@ -190,7 +190,7 @@ class GenerateController extends Controller
         for ($i=0; $i < 50; $i++) {
             $kode_penyewaan     = "RTL-" . strtoupper(Str::random(5));
             $kendaraan          = Kendaraan::all()->toArray();
-            $login              = Login::where('login_level', 'customer')->toArray();
+            $login              = Data::where('login_level', 'customer')->toArray();
             $arr_satuan_waktu   = ["HARI", "BULAN", "JAM"];
             $arr_status         = ["READY","PENDING","BERLANGSUNG"];
 
@@ -199,6 +199,9 @@ class GenerateController extends Controller
             $random_login       = Arr::random($login);
             $random_satuan_waktu = Arr::random($arr_satuan_waktu);
             $random_status = Arr::random($arr_status);
+
+            $default_ktp = "default-ktp.jpg";
+            $default_sim = "default-sim.jpg";
 
             switch ($random_satuan_waktu) {
                 case 'HARI':
@@ -219,12 +222,14 @@ class GenerateController extends Controller
                 "rental_durasi"             => $durasi,
                 "rental_satuan_waktu"       => $random_satuan_waktu,
                 "rental_status"             => $random_status,
-                "rental_bukti_ktp"          => ,
-                "rental_bukti_lain"         => ,
+                "rental_bukti_ktp"          => $default_ktp,
+                "rental_bukti_lain"         => $default_sim,
                 "created_at"                => now(),
                 "updated_at"                => now()
             ]);
             $save_penyewaan->save();
+            $save_penyewaan->data()->associate($data["id"]);
+            $save_penyewaan->kendaraan()->associate($kendaraan["id"]);
         }
     }
 
