@@ -4,7 +4,7 @@ use App\Http\Controllers\BackController;
 use App\Http\Controllers\GenerateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KendaraanController;
-use App\Http\Controllers\PenyewaController;
+use App\Http\Controllers\PenyewaanController;
 use Illuminate\Support\Facades\Route;
 
 // MISC ROUTE
@@ -18,10 +18,16 @@ Route::post('/logout', [BackController::class, 'logout'])->name('logout');
 Route::group(["prefix" => "/dashboard", "middleware" => "ceklogin"], function () {
     Route::get('/', [BackController::class, 'index'])->name('dashboard');
 
-    // Kendaraan
+    // Kendaraan Route
     Route::get('/daftar-kendaraan', [KendaraanController::class, 'daftar_kendaraan'])->name('daftar-kendaraan');
     Route::post('/daftar-kendaraan/update/{id}', [KendaraanController::class, 'update_kendaraan'])->name('update-kendaraan');
     Route::post('/daftar-kendaraan/hapus/{id}', [KendaraanController::class, 'hapus_kendaraan'])->name('hapus-kendaraan');
+
+    // Penyewaan Route
+    Route::get('/daftar-penyewaan', [PenyewaanController::class, 'daftar_penyewaan'])->name('daftar-penyewaan');
+    Route::post('/daftar-penyewaan/update/{id}', [PenyewaanController::class, 'update_penyewaan'])->name('update-penyewaan');
+    Route::post('/daftar-penyewaan/hapus/{id}', [PenyewaanController::class, 'hapus_penyewaan'])->name('hapus-penyewaan');
+
 });
 
 // HOME ROUTE
