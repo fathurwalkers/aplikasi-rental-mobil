@@ -5,7 +5,7 @@
 @section('content-header', 'Daftar Kendaraan')
 
 @section('content-header-button')
-<button class="btn btn-info btn-md ml-auto mr-2" data-toggle="modal" data-target="#modaltambahdata">Tambah Data</button>
+<button class="btn btn-info btn-md ml-auto mr-2" data-toggle="modal" data-target="#modaltambahdata">Tambah Penyewaan</button>
 
 {{-- MODAL TAMBAH DATA --}}
 <div class="modal fade" id="modaltambahdata" tabindex="1" role="dialog" aria-hidden="true">
