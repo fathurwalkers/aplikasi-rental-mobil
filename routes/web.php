@@ -39,3 +39,4 @@ Route::group(["prefix" => "/"], function () {
 Route::get('/generate/chained-generate', [GenerateController::class, 'chained_generate'])->name('chained-generate');
 Route::get('/generate/customer', [GenerateController::class, 'generate_pengguna'])->name('generate-customer');
 Route::get('/generate/kendaraan', [GenerateController::class, 'generate_kendaraan'])->name('generate-kendaraan');
+Route::get('/generate/penyewaan', [GenerateController::class, 'generate_penyewaan'])->name('generate-penyewaan');

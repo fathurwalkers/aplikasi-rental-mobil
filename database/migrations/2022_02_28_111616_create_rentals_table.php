@@ -16,7 +16,7 @@ class CreateRentalsTable extends Migration
             $table->string('rental_durasi')->nullable();
             $table->string('rental_satuan_waktu')->nullable();
             $table->string('rental_info')->nullable();
-            $table->string('rental_status')->nullable();
+            $table->string('rental_status')->nullable(); // Ready - Pending - Berlangsung
             $table->string('rental_bukti_ktp')->nullable();
             $table->string('rental_bukti_lain')->nullable();
 

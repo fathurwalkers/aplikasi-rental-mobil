@@ -184,6 +184,34 @@ class GenerateController extends Controller
         return redirect()->route('dashboard');
     }
 
+    public function generate_penyewaan()
+    {
+        $faker                  = Faker::create('id_ID');
+        for ($i=0; $i < 50; $i++) {
+            $kode_penyewaan     = "RTL-" . strtoupper(Str::random(5));
+            $kendaraan          = Kendaraan::all()->toArray();
+            $login              = Login::where('login_level', 'customer')->toArray();
+
+            $random_kendaraan   = Arr::random($kendaraan);
+            $random_login       = Arr::random($login);
+
+            $penyewaan          = new Rental;
+            $save_penyewaan     = $penyewaan->create([
+                "rental_kode"               => $kode_penyewaan,
+                "rental_waktu_pemesanan"    => ,
+                "rental_durasi"             => ,
+                "rental_satuan_waktu"       => ,
+                "rental_info"               => ,
+                "rental_status"             => ,
+                "rental_bukti_ktp"          => ,
+                "rental_bukti_lain"         => ,
+                "created_at"                => now(),
+                "updated_at"                => now()
+            ]);
+            $save_penyewaan->save();
+        }
+    }
+
     public function chained_generate()
     {
         $this->generate_pengguna();

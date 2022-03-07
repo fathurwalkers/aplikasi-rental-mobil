@@ -5,13 +5,9 @@
             <thead class="thead-dark">
                 <tr class="text-center">
                     <th>No</th>
-                    <th>Merk</th>
-                    <th>Kode</th>
-                    <th>Tipe Kendaraan</th>
+                    <th>Kode Penyewaan</th>
+                    <th>Durasi</th>
                     <th>Status</th>
-                    <th>Kondisi</th>
-                    <th>Jenis Transmisi</th>
-                    <th>Harga Sewa</th>
                     <th>Aksi</th>
                 </tr>
             </thead>
