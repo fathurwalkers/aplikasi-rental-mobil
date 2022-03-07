@@ -28,4 +28,8 @@ class PenyewaanController extends Controller
         $findpenyewaan->forceDelete();
         return redirect()->route('daftar-penyewaan')->with('status', 'Data telah dihapus!');
     }
+    public function update_penyewaan(Request $request, $id)
+    {
+        //
+    }
 }
