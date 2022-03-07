@@ -17,7 +17,7 @@
             </thead>
             <tbody>
 
-                @foreach ($kendaraan as $item)
+                @foreach ($penyewaan as $item)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td class="">{{ $item->kendaraan_merk }}</td>
@@ -76,16 +76,8 @@
                                 </div>
                             </div>
                         </td>
-                        <td class="text-center text-bold">{{ "Rp " . number_format($item->kendaraan_harga_sewa,0,',','.')}}</td>
-                        {{-- <td>
-                            <div class="row">
-                                <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto button-text-fix">
-                                    <button class="btn btn-sm btn-info">
-                                        {{ $item->kendaraan_jenis_body }}
-                                    </button>
-                                </div>
-                            </div>
-                        </td> --}}
+
+                        {{-- Button  --}}
                         <td style="width: 25%">
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12 d-flex mx-auto justify-content-center">
@@ -108,6 +100,7 @@
                                 </div>
                             </div>
                         </td>
+
                     </tr>
 
                     {{-- MODAL LIHAT --}}
