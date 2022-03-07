@@ -22,6 +22,7 @@ Route::group(["prefix" => "/dashboard", "middleware" => "ceklogin"], function ()
     Route::get('/daftar-kendaraan', [KendaraanController::class, 'daftar_kendaraan'])->name('daftar-kendaraan');
     Route::post('/daftar-kendaraan/update/{id}', [KendaraanController::class, 'update_kendaraan'])->name('update-kendaraan');
     Route::post('/daftar-kendaraan/hapus/{id}', [KendaraanController::class, 'hapus_kendaraan'])->name('hapus-kendaraan');
+    Route::post('/daftar-kendaraan/tambah', [KendaraanController::class, 'tambah_kendaraan'])->name('tambah-kendaraan');
 
     // Penyewaan Route
     Route::get('/daftar-penyewaan', [PenyewaanController::class, 'daftar_penyewaan'])->name('daftar-penyewaan');

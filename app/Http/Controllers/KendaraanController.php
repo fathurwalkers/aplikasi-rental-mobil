@@ -26,6 +26,11 @@ class KendaraanController extends Controller
         return redirect()->route('daftar-kendaraan')->with('status', 'Data telah dihapus!');
     }
 
+    public function tambah_kendaraan(Request $request)
+    {
+        $kendaraan = new Kendaraan;
+    }
+
     public function update_kendaraan(Request $request, $id)
     {
         $kendaraan_id = $id;
