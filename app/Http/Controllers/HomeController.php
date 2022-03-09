@@ -17,4 +17,18 @@ class HomeController extends Controller
             'kendaraan' => $kendaraan
         ]);
     }
+
+    public function proses_penyewaan(Request $request, $id)
+    {
+        $kendaraan_id = $id;
+        $kendaraan = Kendaraan::where('id', $kendaraan_id)->firstOrFail();
+        $users = session('data_login');
+        if ($users == null) {
+            return redirect()->route('home')->with('status', 'Maaf, anda harus login atau terdeftar sebagai customer untuk dapat melakukan penyewaan. ');
+        } else {
+            dump($request->rental_durasi);
+            dump($request->rental_satuan_waktu);
+            dd($kendaraan);
+        }
+    }
 }

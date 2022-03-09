@@ -63,13 +63,13 @@
             <div class="modal-content">
 
                 <div class="modal-header">
-                    <h4 class="modal-title">Ubah Data Kendaraan</h4>
+                    <h4 class="modal-title">Form Penyewaan</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
 
-                <div class="modal-body">Silahkan ubah data Kendaraan berikut. </div>
+                <div class="modal-body">Apakah anda yakin ingin menyewa kendaraan ini?</div>
 
                 <div class="container">
                     <div class="row">
@@ -110,9 +110,19 @@
                         <div class="row">
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <label for="kendaraan_merk">Merk Kendaraan</label>
-                                    <input type="text" class="form-control" id="kendaraan_merk" placeholder="Masukkan merk kendaraan" name="kendaraan_merk">
-                                    <small id="kendaraan_merk" class="form-text text-muted">Contoh : DAIHATSU 2022. </small>
+                                    <label for="rental_durasi">Durasi Penyewaan</label>
+                                    <input type="number" class="form-control" id="rental_durasi" placeholder="Masukkan merk kendaraan" name="rental_durasi">
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-6 col-lg-6">
+                                <div class="form-group">
+                                    <label for="kendaraan_satuan_waktu">Satuan Waktu</label>
+                                    <select id="kendaraan_satuan_waktu" class="form-control" name="kendaraan_satuan_waktu">
+                                        <option selected disabled>Pilih satuan waktu...</option>
+                                        <option value="HARI">Hari</option>
+                                        <option value="BULAN">Bulan</option>
+                                        <option value="JAM">Jam</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -122,7 +132,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn gray btn-danger" data-dismiss="modal">Batalkan</button>
                         <button type="submit" class="btn btn-info" >
-                            Ubah
+                            Lanjutkan Penyewaan
                         </button>
                     </div>
                 </form>
