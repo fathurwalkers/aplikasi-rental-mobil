@@ -18,6 +18,11 @@ class HomeController extends Controller
         ]);
     }
 
+    public function kontak()
+    {
+        return view('home.kontak');
+    }
+
     public function proses_penyewaan(Request $request, $id)
     {
         $kendaraan_id = $id;

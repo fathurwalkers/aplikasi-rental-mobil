@@ -34,6 +34,7 @@ Route::group(["prefix" => "/dashboard", "middleware" => "ceklogin"], function ()
 // HOME ROUTE
 Route::group(["prefix" => "/"], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/kontak', [HomeController::class, 'kontak'])->name('kontak');
     Route::post('/proses-penyewaan/{id}', [HomeController::class, 'proses_penyewaan'])->name('proses-penyewaan');
 });
 
