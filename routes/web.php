@@ -29,6 +29,11 @@ Route::group(["prefix" => "/dashboard", "middleware" => "ceklogin"], function ()
     Route::post('/daftar-penyewaan/update/{id}', [PenyewaanController::class, 'update_penyewaan'])->name('update-penyewaan');
     Route::post('/daftar-penyewaan/hapus/{id}', [PenyewaanController::class, 'hapus_penyewaan'])->name('hapus-penyewaan');
 
+    // Customer Route
+    Route::get('/daftar-customer', [CustomerController::class, 'daftar_customer'])->name('daftar-customer');
+    Route::post('/daftar-customer/update/{id}', [CustomerController::class, 'update_customer'])->name('update-customer');
+    Route::post('/daftar-customer/hapus/{id}', [CustomerController::class, 'hapus_customer'])->name('hapus-customer');
+
 });
 
 // HOME ROUTE
