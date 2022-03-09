@@ -33,7 +33,7 @@ class CustomerController extends Controller
 
     public function tambah_kendaraan(Request $request)
     {
-        $kendaraan = new Kendaraan;
+        $kendaraan = new Data;
     }
 
     public function update_kendaraan(Request $request, $id)
@@ -45,35 +45,22 @@ class CustomerController extends Controller
         } else {
             $customer_nama = $customer->data_nama_lengkap;
             $validateData = $request->validate([
-                "kendaraan_deskripsi" => 'required',
-                "kendaraan_harga_sewa" => 'required',
-                "kendaraan_tipe" => 'required|filled',
-                "kendaraan_merk" => 'required',
-                "kendaraan_kondisi" => 'required|filled',
-                "kendaraan_max_mil" => 'required',
-                "kendaraan_tahun" => 'required',
-                "kendaraa_status" => 'required!filled',
-                "kendaraan_jenis_transmisi" => 'required|filled',
-                "kendaraan_jenis_body" => 'required|filled',
+                "data_nama_lengkap" => "required",
+                "data_jenis_kelamin" => "required",
+                "data_email" => "required",
+                "data_telepon" => "required"
             ]);
 
             $customer->update([
-                "kendaraan_deskripsi" => $validateData["kendaraan_deskripsi"],
-                "kendaraan_kode" => $kode_kendaraan,
-                "kendaraan_foto" => $gambar,
-                "kendaraan_harga_sewa" => $validateData["kendaraan_harga_sewa"],
-                "kendaraan_tipe" => $validateData["kendaraan_tipe"],
-                "kendaraan_merk" => $validateData["kendaraan_merk"],
-                "kendaraan_kondisi" => $validateData["kendaraan_kondisi"],
-                "kendaraan_max_mil" => $validateData["kendaraan_max_mil"],
-                "kendaraan_tahun" => $validateData["kendaraan_tahun"],
-                "kendaraan_status" => $validateData["kendaraan_status"],
-                "kendaraan_jenis_transmisi" => $validateData["kendaraan_jenis_transmisi"],
-                "kendaraan_jenis_body" => $validateData["kendaraan_jenis_body"],
+                "data_foto" => $gambar,
+                "data_nama_lengkap" => $validateData["data_nama_lengkap"],
+                "data_jenis_kelamin" => $validateData["data_jenis_kelamin"],
+                "data_email" => $validateData["data_email"],
+                "data_telepon" => $validateData["data_telepon"],
                 "updated_at" => now()
             ]);
-            $status_info = "Data Kendaran " . $customer_nama . " telah berhasil di ubah menjadi " . $validateData["kendaraan_merk"] . ".";
-            return redirect()->route('daftar-kendaraan')->with('status', $status_info);
+            $status_info = "Data Customer " . $customer_nama . " telah berhasil di ubah menjadi " . $validateData["data_nama_lengkap"] . ".";
+            return redirect()->route('daftar-customer')->with('status', $status_info);
         }
     }
 }

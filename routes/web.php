@@ -5,6 +5,7 @@ use App\Http\Controllers\GenerateController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KendaraanController;
 use App\Http\Controllers\PenyewaanController;
+use App\Http\Controllers\CustomerController;
 use Illuminate\Support\Facades\Route;
 
 // MISC ROUTE
