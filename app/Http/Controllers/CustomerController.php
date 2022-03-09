@@ -15,28 +15,28 @@ use App\Models\Rental;
 
 class CustomerController extends Controller
 {
-    public function daftar_kendaraan()
+    public function daftar_customer()
     {
-        $kendaraan = Kendaraan::latest()->get();
-        return view('dashboard.daftar-kendaraan', [
-            'kendaraan' => $kendaraan
+        $customer = Data::latest()->get();
+        return view('dashboard.daftar-customer', [
+            'customer' => $customer
         ]);
     }
 
-    public function hapus_kendaraan(Request $request, $id)
+    public function hapus_customer(Request $request, $id)
     {
-        $kendaraan_id = $id;
-        $findkendaraan = Kendaraan::findOrFail($kendaraan_id);
-        $findkendaraan->forceDelete();
-        return redirect()->route('daftar-kendaraan')->with('status', 'Data telah dihapus!');
+        $customer_id = $id;
+        $findcustomer = Data::findOrFail($customer_id);
+        $findcustomer->forceDelete();
+        return redirect()->route('daftar-customer')->with('status', 'Data telah dihapus!');
     }
 
-    public function tambah_kendaraan(Request $request)
+    public function tambah_customer(Request $request)
     {
-        $kendaraan = new Data;
+        $customer = new Data;
     }
 
-    public function update_kendaraan(Request $request, $id)
+    public function update_customer(Request $request, $id)
     {
         $customer_id = $id;
         $customer = Data::find($customer_id);
