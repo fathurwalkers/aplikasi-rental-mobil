@@ -21,6 +21,10 @@
     @endif
 @endpush
 
+@section('header-hero')
+    <x-home-header-hero />
+@endsection
+
 @section('info')
 <x-home-info />
 @endsection
