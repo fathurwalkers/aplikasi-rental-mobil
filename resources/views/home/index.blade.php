@@ -1,5 +1,7 @@
 @extends('layouts.home-layout')
 
+@section('title', 'Rendra Rental - Home')
+
 @push('css')
     <style>
         .img-fix {
