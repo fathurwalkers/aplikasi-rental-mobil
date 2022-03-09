@@ -21,14 +21,14 @@
 
         <div class="row justify-content-center text-center">
             <div class="col-7 text-center mb-3">
-                <h2>Contact Us Or Use This Form To Rent A Car</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo assumenda, dolorum necessitatibus eius earum voluptates sed!</p>
+                <h2>Kontak Kami</h2>
+                <p>Untuk pelayanan dan pengaduan, anda bisa menghubungi kami pada kontak yang tertera dibawah ini. </p>
             </div>
         </div>
 
         <div class="row">
 
-            <div class="col-lg-8 mb-3" >
+            {{-- <div class="col-lg-8 mb-3" >
                 <form action="#" method="post">
                     <div class="form-group row">
                         <div class="col-md-6 mb-4 mb-lg-0">
@@ -56,9 +56,9 @@
                         </div>
                     </div>
                 </form>
-            </div>
+            </div> --}}
 
-            <div class="col-lg-4 ml-auto">
+            <div class="col-lg-12 mx-auto">
                 <div class="bg-white p-3 p-md-5">
                     <h3 class="text-black mb-4">Contact Info</h3>
                     <ul class="list-unstyled footer-link">
