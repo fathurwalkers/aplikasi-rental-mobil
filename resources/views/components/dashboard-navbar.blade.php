@@ -28,11 +28,19 @@
             <li class="nav-item dropdown">
               <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span> Rental </span></a>
               <ul class="dropdown-menu">
+                @if ($users->login_level == "admin")
                 <li><a class="nav-link" href="{{ route('daftar-kendaraan') }}"> Kelola Kendaraan </a></li>
                 <li><a class="nav-link" href="{{ route('daftar-penyewaan') }}"> Kelola Penyewaan </a></li>
+                @endif
+
+                @if ($users->login_level == "customer")
+                <li><a class="nav-link" href=""> Informasi Penyewaan </a></li>
+                @endif
+
               </ul>
             </li>
 
+            @if ($users->login_level == "admin")
             <li class="nav-item dropdown">
               <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span> Customer </span></a>
               <ul class="dropdown-menu">
@@ -40,6 +48,7 @@
                 <li><a class="nav-link" href="forms-validation.html">Daftar Blacklist</a></li>
               </ul>
             </li>
+            @endif
 
             {{-- <li><a class="nav-link" href="credits.html"><i class="fas fa-pencil-ruler"></i> <span>Pengaturan</span></a></li> --}}
           </ul>

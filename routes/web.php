@@ -34,7 +34,7 @@ Route::group(["prefix" => "/dashboard", "middleware" => "ceklogin"], function ()
 // HOME ROUTE
 Route::group(["prefix" => "/"], function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
-    Route::get('/proses-penyewaan', [HomeController::class, 'proses_penyewaan'])->name('proses-penyewaan');
+    Route::post('/proses-penyewaan/{id}', [HomeController::class, 'proses_penyewaan'])->name('proses-penyewaan');
 });
 
 // GENERATE ROUTE

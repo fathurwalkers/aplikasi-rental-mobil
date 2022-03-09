@@ -13,6 +13,14 @@
     </style>
 @endpush
 
+@push('alert')
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+@endpush
+
 @section('home-body')
 <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
@@ -102,7 +110,7 @@
                     </div>
                 </div>
 
-                <form action="{{ route('update-kendaraan', $item->id) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('proses-penyewaan', $item->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
 
                     <div class="container border-dark">
@@ -111,13 +119,13 @@
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
                                     <label for="rental_durasi">Durasi Penyewaan</label>
-                                    <input type="number" class="form-control" id="rental_durasi" placeholder="Masukkan merk kendaraan" name="rental_durasi">
+                                    <input type="number" class="form-control" id="rental_durasi" placeholder="Durasi penyewaan..." name="rental_durasi">
                                 </div>
                             </div>
                             <div class="col-sm-6 col-md-6 col-lg-6">
                                 <div class="form-group">
-                                    <label for="kendaraan_satuan_waktu">Satuan Waktu</label>
-                                    <select id="kendaraan_satuan_waktu" class="form-control" name="kendaraan_satuan_waktu">
+                                    <label for="rental_satuan_waktu">Satuan Waktu</label>
+                                    <select id="rental_satuan_waktu" class="form-control" name="rental_satuan_waktu">
                                         <option selected disabled>Pilih satuan waktu...</option>
                                         <option value="HARI">Hari</option>
                                         <option value="BULAN">Bulan</option>

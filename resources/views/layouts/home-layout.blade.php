@@ -73,6 +73,7 @@
                   <li><a href="listing.html" class="nav-link">Daftar Kendaraan</a></li>
                   <li><a href="testimonials.html" class="nav-link">Tentang Kami</a></li>
                   <li><a href="about.html" class="nav-link">Kontak</a></li>
+                  <li><a href="{{ route('login') }}" class="nav-link"><b>Login</b></a></li>
                 </ul>
               </nav>
             </div>
@@ -92,8 +93,13 @@
 
               <div class="row mb-4">
                 <div class="col-lg-7 intro">
-                  <h1><strong>Sewa Kendaraan</strong> sekarang juga. </h1>
+                    <h1><strong>Sewa Kendaraan</strong> sekarang juga. </h1>
                 </div>
+              </div>
+              <div class="row">
+                  <div class="col-lg-12 col-md-12 col-sm-12">
+                    @stack('alert')
+                  </div>
               </div>
 
               <form class="trip-form">
