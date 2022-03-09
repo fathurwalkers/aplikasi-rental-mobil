@@ -21,17 +21,22 @@
     @endif
 @endpush
 
+@section('info')
+<x-home-info />
+@endsection
+
 @section('home-body')
-<div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
-        <h2 class="section-heading text-center"><strong>Daftar Kendaraan</strong></h2>
-        <p class="mb-5 text-center">Pilih kendaraan yang ingin anda Sewa</p>
-    </div>
-</div>
 
 <section id="daftar-kendaraan">
-    <div class="row">
 
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 mb-2">
+            <h2 class="section-heading text-center"><strong>Daftar Kendaraan</strong></h2>
+            <p class="mb-5 text-center">Pilih kendaraan yang ingin anda Sewa</p>
+        </div>
+    </div>
+
+    <div class="row">
         @foreach ($kendaraan as $item)
         <div class="col-md-4 col-lg-4 mb-4">
             <div class="listing d-block  align-items-stretch">
@@ -148,10 +153,9 @@
                 </div>
             </div>
         </div>
-
         @endforeach
-
     </div>
+
 </section>
 
 <div class="row">
@@ -159,4 +163,8 @@
         {{ $kendaraan->onEachSide(0)->links() }}
     </div>
 </div>
+@endsection
+
+@section('testimonial')
+<x-home-testimonial />
 @endsection

@@ -140,86 +140,19 @@
         </div>
       </div>
 
-      <div class="site-section">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-7 text-center order-lg-2">
-              <div class="img-wrap-1 mb-5">
-                <img src="{{ asset('home') }}/images/feature_01.png" alt="Image" class="img-fluid">
-              </div>
-            </div>
-            <div class="col-lg-4 ml-auto order-lg-1">
-              <h3 class="mb-4 section-heading"><strong>You can easily avail our promo for renting a car.</strong></h3>
-              <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repudiandae, explicabo iste a labore id est quas, doloremque veritatis! Provident odit pariatur dolorem quisquam, voluptatibus voluptates optio accusamus, vel quasi quidem!</p>
-
-              <p><a href="#" class="btn btn-primary">Meet them now</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
+      {{-- info section  --}}
+      @yield('info')
 
 
-
+      {{-- main content  --}}
     <div class="site-section bg-light">
         <div class="container">
             @yield('home-body')
         </div>
     </div>
 
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7">
-            <h2 class="section-heading"><strong>Testimonial</strong></h2>
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="testimonial-2">
-              <blockquote class="mb-4">
-                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-              </blockquote>
-              <div class="d-flex v-card align-items-center">
-                <img src="{{ asset('home') }}/images/person_1.jpg" alt="Image" class="img-fluid mr-3">
-                <div class="author-name">
-                  <span class="d-block">Mike Fisher</span>
-                  <span>Owner, Ford</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="testimonial-2">
-              <blockquote class="mb-4">
-                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-              </blockquote>
-              <div class="d-flex v-card align-items-center">
-                <img src="{{ asset('home') }}/images/person_2.jpg" alt="Image" class="img-fluid mr-3">
-                <div class="author-name">
-                  <span class="d-block">Jean Stanley</span>
-                  <span>Traveler</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 mb-4 mb-lg-0">
-            <div class="testimonial-2">
-              <blockquote class="mb-4">
-                <p>"Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, deserunt eveniet veniam. Ipsam, nam, voluptatum"</p>
-              </blockquote>
-              <div class="d-flex v-card align-items-center">
-                <img src="{{ asset('home') }}/images/person_3.jpg" alt="Image" class="img-fluid mr-3">
-                <div class="author-name">
-                  <span class="d-block">Katie Rose</span>
-                  <span >Customer</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    {{-- Testimonial  --}}
+    @yield('testimonial')
 
     <div class="site-section bg-primary py-4">
         <div class="container">
