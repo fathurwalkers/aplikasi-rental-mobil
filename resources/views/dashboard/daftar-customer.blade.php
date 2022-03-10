@@ -5,7 +5,7 @@
 @section('content-header', 'Daftar Customer')
 
 @section('content-header-button')
-<button class="btn btn-info btn-md ml-auto mr-2" data-toggle="modal" data-target="#modaltambahdata">Tambah Customer</button>
+{{-- <button class="btn btn-info btn-md ml-auto mr-2" data-toggle="modal" data-target="#modaltambahdata">Tambah Customer</button> --}}
 @endsection
 
 @push('css')
