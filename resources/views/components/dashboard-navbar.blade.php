@@ -44,8 +44,8 @@
             <li class="nav-item dropdown">
               <a href="#" class="nav-link has-dropdown"><i class="far fa-file-alt"></i> <span> Customer </span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="forms-advanced-form.html"> Kelola Customer </a></li>
-                <li><a class="nav-link" href="forms-validation.html">Daftar Blacklist</a></li>
+                <li><a class="nav-link" href="{{ route('daftar-customer') }}"> Kelola Customer </a></li>
+                {{-- <li><a class="nav-link" href="forms-validation.html">Daftar Blacklist</a></li> --}}
               </ul>
             </li>
             @endif
