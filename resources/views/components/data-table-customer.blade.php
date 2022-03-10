@@ -17,7 +17,7 @@
                     @foreach ($customer as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td class="">{{ $item->data_nama_lengkap }}</td>h
+                            <td class="">{{ $item->data_nama_lengkap }}</td>
                             </td>
                             <td class="">{{ $item->data_email }}</td>
                             <td class="">{{ $item->data_telepon }}</td>
@@ -31,10 +31,10 @@
                                             Lihat
                                         </a>
 
-                                        <a class="btn btn-sm btn-primary mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modalupdate{{ $item->id }}">
+                                        {{-- <a class="btn btn-sm btn-primary mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modalupdate{{ $item->id }}">
                                             <i class="fas fa-cog"></i>
                                             Ubah
-                                        </a>
+                                        </a> --}}
 
                                         <a href="#" class="btn btn-danger rounded btn-sm button-text-fix" data-toggle="modal" data-target="#modaldelete{{ $item->id }}">
                                             <i class="fas fa-trash"></i>
@@ -53,19 +53,19 @@
                                 <div class="modal-content">
 
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Informasi Customer : " {{ $item->data_nama_lengkap }} "</h4>
+                                        <h4 class="modal-title">Informasi Customer</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
 
                                     <div class="modal-body">
-                                        <div class="row">
-                                            <div class="col-sm-12 col-md-12 col-lg-12">
-                                                <img src="{{ asset('default-img') }}/{{ $item->data_foto }}" alt="">
+                                        <div class="row mb-4">
+                                            <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center">
+                                                <img src="{{ asset('default-img') }}/{{ $item->data_foto }}" alt="" class="img img-thumbnail" width="65%">
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row mt-2">
                                             <div class="col-sm-4 col-md-4 col-lg-4">
                                                 <h5 class="fix-text-h5">Nama Lengkap </h5>
                                                 <h5 class="fix-text-h5">Jenis Kelamin </h5>
@@ -89,7 +89,6 @@
                                             </div>
                                         </div>
                                     </div>
-
                                     <div class="modal-footer">
                                         <button type="button" class="btn gray btn-info" data-dismiss="modal">TUTUP</button>
                                     </div>

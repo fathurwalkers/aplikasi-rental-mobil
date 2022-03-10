@@ -8,14 +8,23 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use App\Models\Data;
 use App\Models\Login;
-use App\Models\Mobil;
+use App\Models\Kendaraan;
 use App\Models\Rental;
 
 class BackController extends Controller
 {
     public function index()
     {
-        return view('dashboard.index');
+        $data               = Data::all()->count();
+        $login              = Login::all()->count();
+        $kendaraan          = Kendaraan::all()->count();
+        $rental             = Rental::all()->count();
+        return view('dashboard.index', [
+            'data'          => $data,
+            'login'         => $login,
+            'kendaraan'     => $kendaraan,
+            'rental'        => $rental
+        ]);
     }
 
     public function login()

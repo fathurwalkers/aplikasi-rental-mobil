@@ -22,7 +22,7 @@
                         <h4>Total Kendaraan</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        {{ $kendaraan }}
                     </div>
               </div>
             </div>
@@ -38,7 +38,7 @@
                         <h4>Total Customer</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        {{ $data }}
                     </div>
               </div>
             </div>
@@ -55,7 +55,7 @@
                         <h4>Total Penyewaan</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        {{ $rental }}
                     </div>
               </div>
             </div>
@@ -69,10 +69,10 @@
                 </div>
                 <div class="card-wrap">
                     <div class="card-header">
-                        <h4>Laporan</h4>
+                        <h4>User</h4>
                     </div>
                     <div class="card-body">
-                        10
+                        {{ $login }}
                     </div>
               </div>
             </div>
