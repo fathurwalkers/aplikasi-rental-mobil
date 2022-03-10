@@ -34,6 +34,26 @@ class CustomerController extends Controller
     public function tambah_customer(Request $request)
     {
         $customer = new Data;
+
+        $validateData = $request->validate([
+            "data_nama_lengkap" => "required",
+            "data_jenis_kelamin" => "required",
+            "data_email" => "required",
+            "data_telepon" => "required"
+        ]);
+
+        $gambar = $request->file('data_foto');
+
+        $save_customer = $customer->create([
+            "data_foto" => $gambar,
+            "data_nama_lengkap" => $validateData["data_nama_lengkap"],
+            "data_jenis_kelamin" => $validateData["data_jenis_kelamin"],
+            "data_email" => $validateData["data_email"],
+            "data_telepon" => $validateData["data_telepon"],
+            "created_at" => now(),
+            "updated_at" => now()
+        ]);
+        $save_customer->save();
     }
 
     public function update_customer(Request $request, $id)
@@ -50,7 +70,7 @@ class CustomerController extends Controller
                 "data_email" => "required",
                 "data_telepon" => "required"
             ]);
-
+            $gambar = $request->file('data_foto');
             $customer->update([
                 "data_foto" => $gambar,
                 "data_nama_lengkap" => $validateData["data_nama_lengkap"],
