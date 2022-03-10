@@ -6,51 +6,27 @@
                 <thead class="thead-dark">
                     <tr class="text-center">
                         <th>No</th>
-                        <th>Kode Penyewaan</th>
-                        <th>Durasi</th>
-                        <th>Status</th>
+                        <th>Nama</th>
+                        <th>Email</th>
+                        <th>No. HP / Telepon</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
 
-                    @foreach ($penyewaan as $item)
+                    @foreach ($customer as $item)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td class="">{{ $item->rental_kode }}</td>
-                            <td class="">{{ intval($item->rental_durasi) }} ( {{ $item->rental_satuan_waktu }} )</td>
-                            <td>
-                                <div class="row">
-                                    <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center mx-auto">
-                                        @switch($item->rental_status)
-                                            @case("SELESAI")
-                                                <button class="btn btn-sm btn-success button-text-fix">
-                                                    SELESAI
-                                                </button>
-                                                @break
-                                            @case("PENDING")
-                                                <button class="btn btn-sm btn-info button-text-fix">
-                                                    PENDING
-                                                </button>
-                                                @break
-                                            @case("BERLANGSUNG")
-                                                <button class="btn btn-sm btn-danger button-text-fix">
-                                                    SEDANG BERLANGSUNG
-                                                </button>
-                                                @break
-                                        @endswitch
-                                        {{-- <button class="btn btn-sm btn-success">
-                                            {{ $item->kendaraan_merk }}
-                                        </button> --}}
-                                    </div>
-                                </div>
+                            <td class="">{{ $item->data_nama_lengkap }}</td>h
                             </td>
+                            <td class="">{{ $item->data_email }}</td>
+                            <td class="">{{ $item->data_telepon }}</td>
                             {{-- Button  --}}
                             <td style="width: 25%">
                                 <div class="row">
                                     <div class="col-sm-12 col-md-12 col-lg-12 d-flex mx-auto justify-content-center">
 
-                                        <a class="btn btn-sm btn-info mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modallihat{{ $item->id }}">
+                                        <a class="btn btn-sm btn-info mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modalinfouser{{ $item->id }}">
                                             <i class="fas fa-info-circle"></i>
                                             Lihat
                                         </a>
@@ -72,12 +48,12 @@
                         </tr>
 
                         {{-- MODAL LIHAT --}}
-                        <div class="modal fade" id="modallihat{{ $item->id }}" tabindex="1" role="dialog" aria-hidden="true">
+                        <div class="modal fade" id="modalinfouser{{ $item->id }}" tabindex="1" role="dialog" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
 
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Informasi Kendaraan : " {{ $item->kendaraan_merk }} "</h4>
+                                        <h4 class="modal-title">Informasi Customer : " {{ $item->data_nama_lengkap }} "</h4>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
@@ -85,37 +61,31 @@
 
                                     <div class="modal-body">
                                         <div class="row">
-                                            <div class="col-sm-4 col-md-4 col-lg-4">
-                                                <h5 class="fix-text">Merk </h5 class="fix-text">
-                                                <h5 class="fix-text">Harga Sewa </h5 class="fix-text">
-                                                <h5 class="fix-text">Kode Kendaraan </h5 class="fix-text">
-                                                <h5 class="fix-text">Tipe Kendaraan </h5 class="fix-text">
-                                                <h5 class="fix-text">Kondisi </h5 class="fix-text">
-                                                <h5 class="fix-text">Max Mil </h5 class="fix-text">
-                                                <h5 class="fix-text">Tahun </h5 class="fix-text">
-                                                <h5 class="fix-text">Jenis Transmisi </h5 class="fix-text">
-                                                <h5 class="fix-text">Jenis Body </h5 class="fix-text">
-                                            </div>
-                                            <div class="col-sm-8 col-md-8 col-lg-8">
-                                                <h5 class="fix-text">: {{ $item->kendaraan_merk }} </h5 class="fix-text">
-                                                <h5 class="fix-text">: {{ $item->kendaraan_harga_sewa }} </h5 class="fix-text">
-                                                <h5 class="fix-text">: {{ $item->kendaraan_kode }} </h5 class="fix-text">
-                                                <h5 class="fix-text">: {{ $item->kendaraan_tipe }} </h5 class="fix-text">
-                                                <h5 class="fix-text">: {{ $item->kendaraan_kondisi }} </h5 class="fix-text">
-                                                <h5 class="fix-text">: {{ $item->kendaraan_max_mil }} </h5 class="fix-text">
-                                                <h5 class="fix-text">: {{ $item->kendaraan_tahun }} </h5 class="fix-text">
-                                                <h5 class="fix-text">: {{ $item->kendaraan_jenis_transmisi }} </h5 class="fix-text">
-                                                <h5 class="fix-text">: {{ $item->kendaraan_jenis_body }} </h5 class="fix-text">
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-sm-8 col-md-8 col-lg-8">
-                                                <h5>Deskripsi : </h5>
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <img src="{{ asset('default-img') }}/{{ $item->data_foto }}" alt="">
                                             </div>
                                         </div>
                                         <div class="row">
-                                            <div class="col-sm-12 col-md-12 col-lg-12 text-justify">
-                                                {!! $item->kendaraan_deskripsi !!}
+                                            <div class="col-sm-4 col-md-4 col-lg-4">
+                                                <h5 class="fix-text-h5">Nama Lengkap </h5>
+                                                <h5 class="fix-text-h5">Jenis Kelamin </h5>
+                                                <h5 class="fix-text-h5">Email</h5>
+                                                <h5 class="fix-text-h5">No. HP / Telepon</h5>
+                                            </div>
+                                            <div class="col-sm-8 col-md-8 col-lg-8">
+                                                <h5 class="fix-text-h5">: {{ $item->data_nama_lengkap }} </h5>
+                                                <h5 class="fix-text-h5">
+                                                    @switch($item->data_jenis_kelamin)
+                                                    @case("L")
+                                                    LAKI-LAKI
+                                                    @break
+                                                    @case("P")
+                                                    PEREMPUAN
+                                                    @break
+                                                    @endswitch
+                                                </h5>
+                                                <h5 class="fix-text-h5">: {{ $item->data_email }} </h5>
+                                                <h5 class="fix-text-h5">: {{ $item->data_telepon }} </h5>
                                             </div>
                                         </div>
                                     </div>
@@ -139,8 +109,8 @@
                                         </button>
                                     </div>
 
-                                    <div class="modal-body">Apakah anda yakin ingin menghapus item ini? </div>
-                                    <form action="{{ route('hapus-kendaraan', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                    <div class="modal-body">Apakah anda yakin ingin menghapus Data ini? </div>
+                                    <form action="{{ route('hapus-customer', $item->id) }}" method="POST" enctype="multipart/form-data">
                                         @csrf
                                         <div class="modal-footer">
                                             <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Cancel</button>
