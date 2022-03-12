@@ -62,7 +62,7 @@ class HomeController extends Controller
                 $save_rental->data()->associate($data->id);
                 $save_rental->kendaraan()->associate($kendaraan->id);
                 $save_rental->save();
-                dd($save_rental);
+                return redirect()->route('home')->with('status', 'Anda telah berhasil melakukan permohonan penyewaan, silahkan mengambil informasi Penyewaan pada halaman Dashboard anda. ');
             } else {
                 return redirect()->route('home')->with('status', 'Hanya customer saja yang dapat melakukan penyewaan. ');
             }
