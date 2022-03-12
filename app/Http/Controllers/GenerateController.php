@@ -188,7 +188,7 @@ class GenerateController extends Controller
     {
         $faker                  = Faker::create('id_ID');
         for ($i=0; $i < 20; $i++) {
-            $kode_penyewaan     = "RTL-" . strtoupper(Str::random(5));
+            $kode_penyewaan     = "RNDRA". strtoupper(Str::random(8));
             $kendaraan          = Kendaraan::all()->toArray();
             $data               = Data::all()->toArray();
             $arr_satuan_waktu   = ["HARI", "BULAN", "JAM"];
