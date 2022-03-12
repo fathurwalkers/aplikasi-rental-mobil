@@ -63,10 +63,10 @@
                     <h3 class="text-black mb-4">Contact Info</h3>
                     <ul class="list-unstyled footer-link">
                         <li class="d-block mb-3">
-                            <span class="d-block text-black">Address:</span>
-                            <span>34 Street Name, City Name Here, United States</span></li>
-                        <li class="d-block mb-3"><span class="d-block text-black">Phone:</span><span>+1 242 4942 290</span></li>
-                        <li class="d-block mb-3"><span class="d-block text-black">Email:</span><span>info@yourdomain.com</span></li>
+                            <span class="d-block text-black">Alamat :</span>
+                            <span>Jl. Raya Palagimata, Ruko Perempatan Rau, Wameo, Kecamatan Batu Poaro, Kota Baubau, Sulawesi Tenggara</span></li>
+                        <li class="d-block mb-3"><span class="d-block text-black">No. HP / Telepon :</span><span>(+62) 822 - 1566 - 8874</span></li>
+                        <li class="d-block mb-3"><span class="d-block text-black">Email :</span><span>layametravel@gmail.com</span></li>
                     </ul>
                 </div>
             </div>

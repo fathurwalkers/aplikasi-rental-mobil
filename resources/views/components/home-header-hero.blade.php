@@ -16,7 +16,7 @@
                   </div>
               </div>
 
-              <form class="trip-form">
+              {{-- <form class="trip-form">
 
                 <div class="row align-items-center">
 
@@ -47,7 +47,7 @@
                   </div>
                 </div>
 
-              </form>
+              </form> --}}
 
             </div>
           </div>
