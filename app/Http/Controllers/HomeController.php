@@ -13,9 +13,14 @@ class HomeController extends Controller
     public function index()
     {
         $kendaraan = Kendaraan::latest()->paginate(6);
-        return view('home.index', [
-            'kendaraan' => $kendaraan
-        ]);
+        if ($kendaraan == null) {
+            echo "Data Kendaran Kosong!";
+            die;
+        } else {
+            return view('home.index', [
+                'kendaraan' => $kendaraan
+            ]);
+        }
     }
 
     public function kontak()
