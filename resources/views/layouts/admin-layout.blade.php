@@ -14,6 +14,11 @@
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{ asset('stisla/assets') }}/css/style.css">
   <link rel="stylesheet" href="{{ asset('stisla/assets') }}/css/components.css">
+  <style>
+    .modal-backdrop.show {
+        display: none !important;
+    }
+  </style>
   @stack('css')
 </head>
 
@@ -24,8 +29,8 @@
       <nav class="navbar navbar-expand-lg main-navbar">
         <x-dashboard-search-panel />
         <ul class="navbar-nav navbar-right ml-auto">
-          <x-dashboard-pesan />
-          <x-dashboard-notifikasi />
+          {{-- <x-dashboard-pesan /> --}}
+          {{-- <x-dashboard-notifikasi /> --}}
           <x-dashboard-user-panel />
         </ul>
       </nav>

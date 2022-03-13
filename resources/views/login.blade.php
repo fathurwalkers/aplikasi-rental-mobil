@@ -73,7 +73,7 @@
               </div>
             </div>
             <div class="mt-1 text-muted text-center">
-              Don't have an account? <a href="auth-register.html">Create One</a>
+              Belum punya akun? <a href="{{ route('register') }}">Daftar disini</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; Stisla 2018

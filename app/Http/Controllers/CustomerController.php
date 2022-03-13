@@ -83,4 +83,25 @@ class CustomerController extends Controller
             return redirect()->route('daftar-customer')->with('status', $status_info);
         }
     }
+
+    public function pendaftaran_data_customer()
+    {
+        $users = session('data_login');
+        if ($users->login_level == "admin") {
+            return redirect()->route('dashboard')->with('status', 'Tidak dapat beralih ke halaman ini, karena anda bukan users. ');
+        }
+        $data = Data::find($users->data_id);
+        if (!$data == null) {
+            return redirect()->route('dashboard')->with('status', 'Tidak dapat beralih ke halaman ini, karena data anda sudah ada. ');
+        } else {
+            return view('dashboard.pendaftaran-data-customer');
+        }
+    }
+
+    public function post_data_customer()
+    {
+        //
+    }
+
+
 }

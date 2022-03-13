@@ -15,16 +15,33 @@ class BackController extends Controller
 {
     public function index()
     {
-        $data               = Data::all()->count();
-        $login              = Login::all()->count();
-        $kendaraan          = Kendaraan::all()->count();
-        $rental             = Rental::all()->count();
-        return view('dashboard.index', [
-            'data'          => $data,
-            'login'         => $login,
-            'kendaraan'     => $kendaraan,
-            'rental'        => $rental
-        ]);
+        $users = session('data_login');
+        switch ($users->login_level) {
+            case 'admin':
+                $data               = Data::all()->count();
+                $login              = Login::all()->count();
+                $kendaraan          = Kendaraan::all()->count();
+                $rental             = Rental::all()->count();
+                return view('dashboard.index', [
+                    'data'          => $data,
+                    'login'         => $login,
+                    'kendaraan'     => $kendaraan,
+                    'rental'        => $rental
+                ]);
+                break;
+            case 'customer':
+                $user_data = Data::find($users->data_id);
+                if ($user_data == null) {
+                    return redirect()->route('pendaftaran-data-customer');
+                } else {
+                    $user_rental = Rental::where('data_id', $user_data->id)->get();
+                    return view('dashboard.index', [
+                        'data'          => $user_data,
+                        'rental'          => $user_rental
+                    ]);
+                }
+                break;
+        }
     }
 
     public function login()
@@ -38,6 +55,7 @@ class BackController extends Controller
 
     public function register()
     {
+        $users = session('data_login');
         if ($users) {
             return redirect()->route('dashboard');
         }
@@ -98,8 +116,7 @@ class BackController extends Controller
             'login_username'            => 'required',
             'login_password'            => 'required',
             'login_email'               => 'required',
-            'login_telepon'             => 'required',
-            'login_alamat'              => 'required'
+            'login_telepon'             => 'required'
         ]);
         if ($validatedLogin["login_password"] !== $request->login_password2) {
             return back()->with('status', 'Password harus sama.')->withInput();
@@ -111,7 +128,7 @@ class BackController extends Controller
         $token                          = Hash::make($token_raw, [
             'rounds' => 12,
         ]);
-        $level                          = "user";
+        $level                          = "customer";
         $login_status                   = "verified";
         $login_data                     = new Login;
         $save_login                     = $login_data->create([
@@ -120,7 +137,6 @@ class BackController extends Controller
             'login_password'            => $hashPassword,
             'login_email'               => $validatedLogin["login_email"],
             'login_telepon'             => $validatedLogin["login_telepon"],
-            'login_alamat'              => $validatedLogin["login_alamat"],
             'login_token'               => $token,
             'login_level'               => $level,
             'login_status'              => $login_status,

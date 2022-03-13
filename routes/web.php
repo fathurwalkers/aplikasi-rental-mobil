@@ -34,6 +34,8 @@ Route::group(["prefix" => "/dashboard", "middleware" => "ceklogin"], function ()
     Route::get('/daftar-customer', [CustomerController::class, 'daftar_customer'])->name('daftar-customer');
     Route::post('/daftar-customer/update/{id}', [CustomerController::class, 'update_customer'])->name('update-customer');
     Route::post('/daftar-customer/hapus/{id}', [CustomerController::class, 'hapus_customer'])->name('hapus-customer');
+    Route::get('/pendaftaran-data-customer', [CustomerController::class, 'pendaftaran_data_customer'])->name('pendaftaran-data-customer');
+    Route::post('/pendaftaran-data-customer/post/{id}', [CustomerController::class, 'post_data_customer'])->name('post-data-customer');
 
 });
 
