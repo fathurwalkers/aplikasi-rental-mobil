@@ -93,15 +93,6 @@ class BackController extends Controller
                     }
                 }
                 break;
-            // case 'pendaftar':
-            //     $cek_password = Hash::check($request->login_password, $data_login->login_password);
-            //     if ($data_login) {
-            //         if ($cek_password) {
-            //             $users = session(['data_login' => $data_login]);
-            //             return redirect()->route('dashboard')->with('status', 'Berhasil Login!');
-            //         }
-            //     }
-            //     break;
         }
         return back()->with('status', 'Maaf username atau password salah!')->withInput();
     }
