@@ -90,14 +90,14 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-3">
-              <h2 class="footer-heading mb-1 mt-4">About Us</h2>
-              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. </p>
-              <ul class="list-unstyled social">
+              <h2 class="footer-heading mb-1 mt-4">Tentang Kami</h2>
+              <p> Rendra Rental adalah sebuah Tempat Penyewaan Kendaraan yang beralamatkan di Pos 2, Exa Shop, Jl. Raya Palagimata ruko perempatan rau, Wameo, Kecamatan Batu Poaro, Kota Bau-Bau, Sulawesi Tenggara. </p>
+              {{-- <ul class="list-unstyled social">
                 <li><a href="#"><span class="icon-facebook"></span></a></li>
                 <li><a href="#"><span class="icon-instagram"></span></a></li>
                 <li><a href="#"><span class="icon-twitter"></span></a></li>
                 <li><a href="#"><span class="icon-linkedin"></span></a></li>
-              </ul>
+              </ul> --}}
             </div>
           </div>
           <div class="row pb-2 mt-1 text-center">
