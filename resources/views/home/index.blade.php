@@ -28,7 +28,7 @@
 @endsection
 
 @section('info')
-    <x-home-info />
+    {{-- <x-home-info /> --}}
 @endsection
 
 @section('home-body')
