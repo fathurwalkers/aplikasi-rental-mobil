@@ -16,9 +16,8 @@ class BackController extends Controller
     public function index()
     {
         $session_user = session('data_login');
-        $users = Login::findOrFail($session_user->id);
-        dd($users);
-        switch ($users->login_level) {
+        $user_login = Login::findOrFail($session_user->id);
+        switch ($session_user->login_level) {
             case "admin":
                 $data               = Data::all()->count();
                 $login              = Login::all()->count();
@@ -32,8 +31,12 @@ class BackController extends Controller
                 ]);
                 break;
             case "customer":
-                $user_data = Data::findOrFail($users->data_id);
-                dd($user_data);
+                $user_data = Data::find($user_login->data_id);
+                if ($user_data == null) {
+                    return redirect()->route('pendaftaran-data-customer')->with('status', 'Anda belu mempunyai Data customer, silahkan melakukan pengisian form data customer sebelum mengakses halaman lain pada Dashboard Panel ini. ');
+                } else {
+                    return view('dashboard.index');
+                }
                 break;
         }
     }

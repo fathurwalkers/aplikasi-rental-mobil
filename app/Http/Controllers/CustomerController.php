@@ -91,8 +91,7 @@ class CustomerController extends Controller
         if ($login->login_level == "admin") {
             return redirect()->route('dashboard')->with('status', 'Tidak dapat beralih ke halaman ini, karena anda bukan users. ');
         }
-        $data = $login->where('data_id', $login->data_id);
-        if ($data == null) {
+        if ($login->data_id == null) {
             return view('dashboard.pendaftaran-data-customer');
         } else {
             return redirect()->route('dashboard')->with('status', 'Tidak dapat beralih ke halaman ini, karena data anda sudah ada. ');
@@ -105,6 +104,7 @@ class CustomerController extends Controller
         $customer = new Data;
 
         $validateData = $request->validate([
+            "data_foto" => "required",
             "data_nama_lengkap" => "required",
             "data_jenis_kelamin" => "required"
         ]);
