@@ -15,9 +15,11 @@ class BackController extends Controller
 {
     public function index()
     {
-        $users = session('data_login');
+        $session_user = session('data_login');
+        $users = Login::findOrFail($session_user->id);
+        dd($users);
         switch ($users->login_level) {
-            case 'admin':
+            case "admin":
                 $data               = Data::all()->count();
                 $login              = Login::all()->count();
                 $kendaraan          = Kendaraan::all()->count();
@@ -29,17 +31,9 @@ class BackController extends Controller
                     'rental'        => $rental
                 ]);
                 break;
-            case 'customer':
-                $user_data = Data::find($users->data_id);
-                if ($user_data == null) {
-                    return redirect()->route('pendaftaran-data-customer');
-                } else {
-                    $user_rental = Rental::where('data_id', $user_data->id)->get();
-                    return view('dashboard.index', [
-                        'data'          => $user_data,
-                        'rental'          => $user_rental
-                    ]);
-                }
+            case "customer":
+                $user_data = Data::findOrFail($users->data_id);
+                dd($user_data);
                 break;
         }
     }

@@ -20,8 +20,8 @@
                 <div class="row">
                     <div class="col-sm-12 col-md-12 col-lg-12">
                         <div class="form-group">
-                            <label for="login_foto">Foto</label>
-                            <input type="file" class="form-control-file" id="login_foto" name="login_foto">
+                            <label for="data_foto">Foto</label>
+                            <input type="file" class="form-control-file" id="data_foto" name="data_foto">
                         </div>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
                     <div class="col-sm-6 col-md-6 col-lg-6">
                         <div class="form-group">
                             <label for="data_nama_lengkap">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="data_nama_lengkap" name="login_foto">
+                            <input type="text" class="form-control" id="data_nama_lengkap" name="data_nama_lengkap">
                         </div>
                     </div>
                     <div class="col-sm-6 col-md-6 col-lg-6">

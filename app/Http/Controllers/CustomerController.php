@@ -87,20 +87,55 @@ class CustomerController extends Controller
     public function pendaftaran_data_customer()
     {
         $users = session('data_login');
-        if ($users->login_level == "admin") {
+        $login = Login::findOrFail($users->id);
+        if ($login->login_level == "admin") {
             return redirect()->route('dashboard')->with('status', 'Tidak dapat beralih ke halaman ini, karena anda bukan users. ');
         }
-        $data = Data::find($users->data_id);
-        if (!$data == null) {
-            return redirect()->route('dashboard')->with('status', 'Tidak dapat beralih ke halaman ini, karena data anda sudah ada. ');
-        } else {
+        $data = $login->where('data_id', $login->data_id);
+        if ($data == null) {
             return view('dashboard.pendaftaran-data-customer');
+        } else {
+            return redirect()->route('dashboard')->with('status', 'Tidak dapat beralih ke halaman ini, karena data anda sudah ada. ');
         }
     }
 
-    public function post_data_customer()
+    public function post_data_customer(Request $request, $id)
     {
-        //
+        $login = Login::findOrFail($id);
+        $customer = new Data;
+
+        $validateData = $request->validate([
+            "data_nama_lengkap" => "required",
+            "data_jenis_kelamin" => "required"
+        ]);
+
+        $gambar_cek = $request->file('data_foto');
+        if (!$gambar_cek) {
+            $gambar = null;
+        } else {
+            $randomNamaGambar = Str::random(10) . '.jpg';
+            $gambar = $request->file('data_foto')->move(public_path('default-img/foto'), strtolower($randomNamaGambar));
+        }
+
+        if ($gambar == null) {
+            $gambar = null;
+        } else {
+            $gambar = $gambar->getFileName();
+        }
+
+        $save_customer = $customer->create([
+            "data_foto" => $gambar,
+            "data_nama_lengkap" => $validateData["data_nama_lengkap"],
+            "data_jenis_kelamin" => $validateData["data_jenis_kelamin"],
+            "data_email" => $login->login_email,
+            "data_telepon" => $login->login_telepon,
+            "created_at" => now(),
+            "updated_at" => now()
+        ]);
+        $save_customer->save();
+        $login->data()->associate($save_customer->id);
+        $login->save();
+        return redirect()->route('dashboard')->with('status', 'Data Customer anda telah dibuat. ');
     }
 
 
