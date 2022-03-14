@@ -120,7 +120,7 @@
               </div>
             </div>
             <div class="mt-1 text-muted text-center">
-              Don't have an account? <a href="auth-register.html">Create One</a>
+              Sudah punya Akun? <a href="{{ route('login') }}">Masuk disini!</a>
             </div>
             <div class="simple-footer">
               Copyright &copy; Stisla 2018
