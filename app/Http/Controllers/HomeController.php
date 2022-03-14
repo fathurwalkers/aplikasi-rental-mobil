@@ -31,10 +31,10 @@ class HomeController extends Controller
         $kendaraan_id = $id;
         $kendaraan = Kendaraan::findOrFail($kendaraan_id);
         $users = session('data_login');
-        if ($users->login_level == "admin") {
+        if ($users == null) {
             return redirect()->route('home')->with('status', 'Maaf, anda harus login atau terdeftar sebagai customer untuk dapat melakukan penyewaan. ');
         }
-        if ($users == null) {
+        if ($users->login_level == "admin") {
             return redirect()->route('home')->with('status', 'Maaf, anda harus login atau terdeftar sebagai customer untuk dapat melakukan penyewaan. ');
         } else {
             $login = Login::find($users->id);
