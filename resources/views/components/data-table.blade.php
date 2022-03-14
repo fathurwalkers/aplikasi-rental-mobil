@@ -317,6 +317,15 @@
 
                                         <div class="row">
                                             <div class="col-sm-12 col-md-12 col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="kendaraan_foto">Foto</label>
+                                                    <input type="file" class="form-control-file" id="kendaraan_foto" name="kendaraan_foto">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-12 col-lg-12">
                                                 <textarea name="kendaraan_deskripsi" id="editor{{ $item->id }}">
                                                     Tuliskan deskripsi kendaraan...
                                                 </textarea>

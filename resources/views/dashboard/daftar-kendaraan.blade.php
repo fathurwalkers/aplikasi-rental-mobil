@@ -71,7 +71,7 @@
                                 <select id="kendaraan_tipe" class="form-control" name="kendaraan_tipe">
                                     <option selected disabled value="">Pilih tipe kendaraan...</option>
                                     <option value="MOBIL">MOBIL</option>
-                                    <option value="MOTOR">MOTOR</option>
+                                    {{-- <option value="MOTOR">MOTOR</option> --}}
                                 </select>
                             </div>
                         </div>
@@ -122,6 +122,14 @@
                     </div>
                     <div class="row">
                         <div class="col-sm-12 col-md-12 col-lg-12">
+                            <div class="form-group">
+                                <label for="kendaraan_foto">Foto</label>
+                                <input type="file" class="form-control-file" id="kendaraan_foto" name="kendaraan_foto">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12">
                             <textarea name="kendaraan_deskripsi" id="tambaheditor">
                                 Tuliskan deskripsi kendaraan...
                             </textarea>
@@ -131,7 +139,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn gray btn-danger" data-dismiss="modal">Batalkan</button>
                     <button type="submit" class="btn btn-info" >
-                        Ubah
+                        Tambah
                     </button>
                 </div>
             </form>
