@@ -15,7 +15,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $kendaraan = Kendaraan::latest()->paginate(6);
+        $kendaraan = Kendaraan::where('kendaraan_status', 'TERSEDIA')->paginate(6);
         if ($kendaraan == null) {
             echo "Data Kendaran Kosong!";
             die;
@@ -36,10 +36,13 @@ class HomeController extends Controller
         $kendaraan_id = $id;
         $kendaraan = Kendaraan::findOrFail($kendaraan_id);
         $users = session('data_login');
-        $login = Login::find($users->id);
+        if ($users->login_level == "admin") {
+            return redirect()->route('home')->with('status', 'Maaf, anda harus login atau terdeftar sebagai customer untuk dapat melakukan penyewaan. ');
+        }
         if ($users == null) {
             return redirect()->route('home')->with('status', 'Maaf, anda harus login atau terdeftar sebagai customer untuk dapat melakukan penyewaan. ');
         } else {
+            $login = Login::find($users->id);
             if ($users->login_level == "customer") {
                 $data                   = Data::find($login->data_id);
                 $rental                 = new Rental;
