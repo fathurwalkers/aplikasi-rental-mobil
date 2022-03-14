@@ -95,7 +95,7 @@
                 @endif
 
                 @if ($users->login_level == "customer")
-                <li><a class="nav-link" href=""> Informasi Penyewaan </a></li>
+                <li><a class="nav-link" href="{{ route('daftar-penyewaan') }}">Informasi Penyewaan </a></li>
                 @endif
 
               </ul>

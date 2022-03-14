@@ -49,19 +49,31 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12 d-flex mx-auto justify-content-center">
 
-                                    <a class="btn btn-sm btn-info mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modallihat{{ $item->id }}">
+                                    @if ($users->login_level == "admin")
+                                    <a class="btn btn-sm btn-info mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modalkonfirmasipenyewaan{{ $item->id }}">
                                         <i class="fas fa-info-circle"></i>
-                                        Lihat
+                                        Konfirmasi
                                     </a>
 
-                                    <a class="btn btn-sm btn-primary mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modalupdate{{ $item->id }}">
+                                    <a class="btn btn-sm btn-success mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modalselesai{{ $item->id }}">
+                                        <i class="fas fa-info-circle"></i>
+                                        Selesai
+                                    </a>
+
+                                    {{-- <a class="btn btn-sm btn-primary mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modalupdate{{ $item->id }}">
                                         <i class="fas fa-cog"></i>
                                         Ubah
-                                    </a>
+                                    </a> --}}
 
                                     <a href="#" class="btn btn-danger rounded btn-sm button-text-fix" data-toggle="modal" data-target="#modaldelete{{ $item->id }}">
                                         <i class="fas fa-trash"></i>
                                         Hapus
+                                    </a>
+                                    @endif
+
+                                    <a href="#" class="btn btn-info rounded btn-sm button-text-fix" data-toggle="modal" data-target="#modallihat{{ $item->id }}">
+                                        <i class="fas fa-info-circle"></i>
+                                        Lihat
                                     </a>
 
                                 </div>
@@ -76,7 +88,7 @@
                             <div class="modal-content">
 
                                 <div class="modal-header">
-                                    <h4 class="modal-title">Informasi Kendaraan : " {{ $item->kendaraan_merk }} "</h4>
+                                    <h5 class="modal-title">Informasi Penyewaan : " {{ $item->rental_kode }} "</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -85,29 +97,21 @@
                                 <div class="modal-body">
                                     <div class="row">
                                         <div class="col-sm-4 col-md-4 col-lg-4">
-                                            <h5 class="fix-text">Merk </h5 class="fix-text">
-                                            <h5 class="fix-text">Harga Sewa </h5 class="fix-text">
-                                            <h5 class="fix-text">Kode Kendaraan </h5 class="fix-text">
-                                            <h5 class="fix-text">Tipe Kendaraan </h5 class="fix-text">
-                                            <h5 class="fix-text">Kondisi </h5 class="fix-text">
-                                            <h5 class="fix-text">Max Mil </h5 class="fix-text">
-                                            <h5 class="fix-text">Tahun </h5 class="fix-text">
-                                            <h5 class="fix-text">Jenis Transmisi </h5 class="fix-text">
-                                            <h5 class="fix-text">Jenis Body </h5 class="fix-text">
+                                            <h5 class="fix-text">Nama Penyewa</h5>
+                                            <h5 class="fix-text">Kode Penyewaan </h5>
+                                            <h5 class="fix-text">Status Penyewaan </h5>
+                                            <h5 class="fix-text">Durasi Penyewaan</h5>
+                                            <h5 class="fix-text">Merk Kendaraan</h5>
                                         </div>
                                         <div class="col-sm-8 col-md-8 col-lg-8">
-                                            <h5 class="fix-text">: {{ $item->kendaraan_merk }} </h5 class="fix-text">
-                                            <h5 class="fix-text">: {{ $item->kendaraan_harga_sewa }} </h5 class="fix-text">
-                                            <h5 class="fix-text">: {{ $item->kendaraan_kode }} </h5 class="fix-text">
-                                            <h5 class="fix-text">: {{ $item->kendaraan_tipe }} </h5 class="fix-text">
-                                            <h5 class="fix-text">: {{ $item->kendaraan_kondisi }} </h5 class="fix-text">
-                                            <h5 class="fix-text">: {{ $item->kendaraan_max_mil }} </h5 class="fix-text">
-                                            <h5 class="fix-text">: {{ $item->kendaraan_tahun }} </h5 class="fix-text">
-                                            <h5 class="fix-text">: {{ $item->kendaraan_jenis_transmisi }} </h5 class="fix-text">
-                                            <h5 class="fix-text">: {{ $item->kendaraan_jenis_body }} </h5 class="fix-text">
+                                            <h5 class="fix-text">: {{ $item->data->data_nama_lengkap }} </h5>
+                                            <h5 class="fix-text">: {{ $item->rental_kode }} </h5>
+                                            <h5 class="fix-text">: {{ $item->rental_status }} </h5>
+                                            <h5 class="fix-text">: {{ $item->rental_durasi }} ({{ $item->rental_satuan_waktu }}) </h5>
+                                            <h5 class="fix-text">: {{ $item->kendaraan->kendaraan_merk }} </h5>
                                         </div>
                                     </div>
-                                    <div class="row mt-2">
+                                    {{-- <div class="row mt-2">
                                         <div class="col-sm-8 col-md-8 col-lg-8">
                                             <h5>Deskripsi : </h5>
                                         </div>
@@ -116,7 +120,7 @@
                                         <div class="col-sm-12 col-md-12 col-lg-12 text-justify">
                                             {!! $item->kendaraan_deskripsi !!}
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
 
                                 <div class="modal-footer">
@@ -153,6 +157,62 @@
                         </div>
                     </div>
                     {{-- End MODAL DELETE --}}
+
+                    {{-- MODAL KONFIRMASI PENYEWAAN --}}
+                    <div class="modal fade" id="modalkonfirmasipenyewaan{{ $item->id }}" tabindex="1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Konfirmasi Penyewaan</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">Apakah anda ingin melakukan konfirmasi penyewaan ini? </div>
+                                <form action="{{ route('konfirmasi-penyewaan', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Batalkan</button>
+                                        <button type="submit" class="btn btn-outline-danger" >
+                                            Konfirmasi
+                                        </button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    {{-- End MODAL KONFIRMASI PENYEWAAN --}}
+
+                    {{-- MODAL SELESAI --}}
+                    <div class="modal fade" id="modalselesai{{ $item->id }}" tabindex="1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Konfirmasi Penyewaan</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">Apakah anda ingin menyelesaikan status penyewaan ini? </div>
+                                <form action="{{ route('konfirmasi-penyewaan-selesai', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Batalkan</button>
+                                        <button type="submit" class="btn btn-outline-danger" >
+                                            Konfirmasi
+                                        </button>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    {{-- End MODAL SELESAI --}}
 
                     {{-- MODAL UPDATE --}}
                     <div class="modal fade" id="modalupdate{{ $item->id }}" tabindex="1" role="dialog" aria-hidden="true">

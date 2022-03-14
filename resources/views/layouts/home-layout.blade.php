@@ -90,7 +90,7 @@
         <div class="container">
           <div class="row">
             <div class="col-lg-3">
-              <h2 class="footer-heading mb-1 mt-4">Tentang Kami</h2>
+              <h2 class="footer-heading mb-1 mt-4" id="tentang-kami">Tentang Kami</h2>
               <p> Rendra Rental adalah sebuah Tempat Penyewaan Kendaraan yang beralamatkan di Pos 2, Exa Shop, Jl. Raya Palagimata ruko perempatan rau, Wameo, Kecamatan Batu Poaro, Kota Bau-Bau, Sulawesi Tenggara. </p>
               {{-- <ul class="list-unstyled social">
                 <li><a href="#"><span class="icon-facebook"></span></a></li>

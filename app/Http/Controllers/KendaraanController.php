@@ -63,23 +63,23 @@ class KendaraanController extends Controller
     public function update_kendaraan(Request $request, $id)
     {
         $kendaraan_id = $id;
-        $kendaraan = Kendaraan::where('id', $kendaraan_id)->first();
+        $kendaraan = Kendaraan::find($kendaraan_id);
         if ($kendaraan == null) {
             return redirect()->route('daftar-kendaraan')->with('status', 'Data Kendaraan yang anda ingin ubah tidak dapat ditemukan. ');
         } else {
             $kendaraan_nama = $kendaraan->kendaraan_merk;
-            $validateData = $request->validate([
-                "kendaraan_deskripsi" => 'required',
-                "kendaraan_harga_sewa" => 'required',
-                "kendaraan_tipe" => 'required|filled',
-                "kendaraan_merk" => 'required',
-                "kendaraan_kondisi" => 'required|filled',
-                "kendaraan_max_mil" => 'required',
-                "kendaraan_tahun" => 'required',
-                "kendaraa_status" => 'required|filled',
-                "kendaraan_jenis_transmisi" => 'required|filled',
-                "kendaraan_jenis_body" => 'required|filled',
-            ]);
+            // $validateData = $request->validate([
+            //     "kendaraan_deskripsi" => 'required',
+            //     "kendaraan_harga_sewa" => 'required',
+            //     "kendaraan_tipe" => 'required|filled',
+            //     "kendaraan_merk" => 'required',
+            //     "kendaraan_kondisi" => 'required|filled',
+            //     "kendaraan_max_mil" => 'required',
+            //     "kendaraan_tahun" => 'required',
+            //     "kendaraa_status" => 'required|filled',
+            //     "kendaraan_jenis_transmisi" => 'required|filled',
+            //     "kendaraan_jenis_body" => 'required|filled',
+            // ]);
 
             $gambar_cek = $request->file('kendaraan_foto');
             if (!$gambar_cek) {
@@ -92,32 +92,24 @@ class KendaraanController extends Controller
                 $gambar = $randomNamaGambar;
             }
 
-            // if ($gambar_ori == $kendaraan->kendaraan_foto) {
-            //     $gambar = $kendaraan->kendaraan_foto;
-            // } else {
-            //     $gambar_ori = $gambar_ori->getFileName();
-            //     $ext = $request->file('kendaraan_foto')->getClientOriginalExtension();
-            //     $gambar = $gambar_ori . "." . $ext;
-            // }
-
             $kode_kendaraan = "KDR-" . strtoupper(Str::random(5));
 
             $kendaraan->update([
-                "kendaraan_deskripsi" => $validateData["kendaraan_deskripsi"],
+                "kendaraan_deskripsi" => $request->kendaraan_deskripsi,
                 "kendaraan_kode" => $kode_kendaraan,
                 "kendaraan_foto" => $gambar,
-                "kendaraan_harga_sewa" => $validateData["kendaraan_harga_sewa"],
-                "kendaraan_tipe" => $validateData["kendaraan_tipe"],
-                "kendaraan_merk" => $validateData["kendaraan_merk"],
-                "kendaraan_kondisi" => $validateData["kendaraan_kondisi"],
-                "kendaraan_max_mil" => $validateData["kendaraan_max_mil"],
-                "kendaraan_tahun" => $validateData["kendaraan_tahun"],
-                "kendaraan_status" => $validateData["kendaraan_status"],
-                "kendaraan_jenis_transmisi" => $validateData["kendaraan_jenis_transmisi"],
-                "kendaraan_jenis_body" => $validateData["kendaraan_jenis_body"],
+                "kendaraan_harga_sewa" => $request->kendaraan_harga_sewa,
+                "kendaraan_tipe" => $request->kendaraan_tipe,
+                "kendaraan_merk" => $request->kendaraan_merk,
+                "kendaraan_kondisi" => $request->kendaraan_kondisi,
+                "kendaraan_max_mil" => $request->kendaraan_max_mil,
+                "kendaraan_tahun" => $request->kendaraan_tahun,
+                "kendaraan_status" => $request->kendaraan_status,
+                "kendaraan_jenis_transmisi" => $request->kendaraan_jenis_transmisi,
+                "kendaraan_jenis_body" => $request->kendaraan_jenis_body,
                 "updated_at" => now()
             ]);
-            $status_info = "Data Kendaran " . $kendaraan_nama . " telah berhasil di ubah menjadi " . $validateData["kendaraan_merk"] . ".";
+            $status_info = "Data Kendaran " . $kendaraan_nama . " telah berhasil di ubah menjadi " . $request->kendaraan_merk . ".";
             return redirect()->route('daftar-kendaraan')->with('status', $status_info);
         }
     }

@@ -32,7 +32,7 @@
                                                 TERSEDIA
                                             </button>
                                             @break
-                                        @case("RENTAL")
+                                        @case("BERLANGSUNG")
                                             <button class="btn btn-sm btn-info button-text-fix">
                                                 DALAM PENYEWAAN
                                             </button>
@@ -327,7 +327,7 @@
                                         <div class="row">
                                             <div class="col-sm-12 col-md-12 col-lg-12">
                                                 <textarea name="kendaraan_deskripsi" id="editor{{ $item->id }}">
-                                                    Tuliskan deskripsi kendaraan...
+                                                    {{ $item->kendaraan_deskripsi }}
                                                 </textarea>
                                             </div>
                                         </div>

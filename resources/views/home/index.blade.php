@@ -47,7 +47,7 @@
             <div class="col-md-4 col-lg-4 mb-4">
                 <div class="listing d-block  align-items-stretch">
                     <div class="listing-img h-100 mr-4">
-                        <img src="{{ asset('default-img') }}/{{ $item->kendaraan_foto }}" alt="Image" class="img img-fix">
+                        <img src="{{ asset('default-img/foto') }}/{{ $item->kendaraan_foto }}" alt="Image" class="img img-fix">
                     </div>
                     <div class="listing-contents h-100">
                         <h3>{{ $item->kendaraan_merk }}</h3>

@@ -27,6 +27,8 @@ Route::group(["prefix" => "/dashboard", "middleware" => "ceklogin"], function ()
 
     // Penyewaan Route
     Route::get('/daftar-penyewaan', [PenyewaanController::class, 'daftar_penyewaan'])->name('daftar-penyewaan');
+    Route::post('/konfirmasi-penyewaan/{id}', [PenyewaanController::class, 'konfirmasi_penyewaan'])->name('konfirmasi-penyewaan');
+    Route::post('/konfirmasi-penyewaan-selesai/{id}', [PenyewaanController::class, 'konfirmasi_penyewaan_selesai'])->name('konfirmasi-penyewaan-selesai');
     Route::post('/daftar-penyewaan/update/{id}', [PenyewaanController::class, 'update_penyewaan'])->name('update-penyewaan');
     Route::post('/daftar-penyewaan/hapus/{id}', [PenyewaanController::class, 'hapus_penyewaan'])->name('hapus-penyewaan');
 

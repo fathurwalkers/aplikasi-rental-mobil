@@ -18,7 +18,7 @@
                 <ul class="site-menu main-menu js-clone-nav ml-auto ">
                   <li class="active"><a href="{{ route('home') }}" class="nav-link">Beranda</a></li>
                   <li><a href="#daftar-kendaraan" class="nav-link">Daftar Kendaraan</a></li>
-                  <li><a href="testimonials.html" class="nav-link">Tentang Kami</a></li>
+                  <li><a href="#tentang-kami" class="nav-link">Tentang Kami</a></li>
                   <li><a href="{{ route('kontak') }}" class="nav-link">Kontak</a></li>
                   <li><a href="{{ route('login') }}" class="nav-link"><b>Login</b></a></li>
                 </ul>

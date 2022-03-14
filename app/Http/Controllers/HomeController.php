@@ -36,12 +36,12 @@ class HomeController extends Controller
         $kendaraan_id = $id;
         $kendaraan = Kendaraan::findOrFail($kendaraan_id);
         $users = session('data_login');
-
+        $login = Login::find($users->id);
         if ($users == null) {
             return redirect()->route('home')->with('status', 'Maaf, anda harus login atau terdeftar sebagai customer untuk dapat melakukan penyewaan. ');
         } else {
             if ($users->login_level == "customer") {
-                $data = Data::findOrFail($users->data_id);
+                $data                   = Data::find($login->data_id);
                 $rental                 = new Rental;
                 $rental_durasi          = $request->rental_durasi;
                 $rental_satuan_waktu    = $request->rental_satuan_waktu;
