@@ -1,5 +1,6 @@
 <div>
-    <div class="hero" style="background-image: url('{{ asset('home') }}/images/hero_1_a.jpg');">
+    {{-- <div class="hero" style="background-image: url('{{ asset('home') }}/images/hero_1_a.jpg');"> --}}
+    <div class="hero" style="background-image: url('{{ asset('default-img') }}/banner-hero.jpg');">
 
         <div class="container">
           <div class="row align-items-center justify-content-center">
