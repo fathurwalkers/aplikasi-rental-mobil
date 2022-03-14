@@ -79,7 +79,7 @@
                     <p class="mb-0 opa-7">Jika ada sebuah kendala ataupun masalah terkait rental kami, silahkan menuju Whatsapp kami untuk keperluan pelaporan. </p>
                 </div>
                 <div class="col-lg-5 text-md-right">
-                    <a href="#" class="btn btn-primary btn-white">Chat sekarang</a>
+                    <a href="https://api.whatsapp.com/send?phone=+6282325993328&text=Halo,%20Rendra%20Rental" class="btn btn-primary btn-white">Chat sekarang</a>
                 </div>
             </div>
         </div>

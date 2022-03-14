@@ -16,14 +16,9 @@ class HomeController extends Controller
     public function index()
     {
         $kendaraan = Kendaraan::where('kendaraan_status', 'TERSEDIA')->paginate(6);
-        if ($kendaraan == null) {
-            echo "Data Kendaran Kosong!";
-            die;
-        } else {
-            return view('home.index', [
-                'kendaraan' => $kendaraan
-            ]);
-        }
+        return view('home.index', [
+            'kendaraan' => $kendaraan
+        ]);
     }
 
     public function kontak()

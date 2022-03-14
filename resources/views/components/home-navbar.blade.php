@@ -20,7 +20,16 @@
                   <li><a href="#daftar-kendaraan" class="nav-link">Daftar Kendaraan</a></li>
                   <li><a href="#tentang-kami" class="nav-link">Tentang Kami</a></li>
                   <li><a href="{{ route('kontak') }}" class="nav-link">Kontak</a></li>
+
+                  @php
+                      $users = session('data_login');
+                  @endphp
+                  @if ($users)
+                  <li><a href="{{ route('login') }}" class="nav-link"><b>Dashboard</b></a></li>
+                  @else
                   <li><a href="{{ route('login') }}" class="nav-link"><b>Login</b></a></li>
+                  @endif
+
                 </ul>
               </nav>
             </div>
