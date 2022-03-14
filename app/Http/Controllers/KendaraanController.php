@@ -32,18 +32,12 @@ class KendaraanController extends Controller
 
         $gambar_cek = $request->file('kendaraan_foto');
         if (!$gambar_cek) {
-            $gambar_ori = null;
-        } else {
-            $randomNamaGambar = Str::random(10);
-            $gambar_ori = $request->file('kendaraan_foto')->move(public_path('default-img/foto'), strtolower($randomNamaGambar));
-        }
-
-        if ($gambar_ori == null) {
             $gambar = null;
         } else {
-            $gambar_ori = $gambar_ori->getFileName();
             $ext = $request->file('kendaraan_foto')->getClientOriginalExtension();
-            $gambar = $gambar_ori . "." . $ext;
+            $randomNamaGambar = strtolower(Str::random(10)) . "." .$ext;
+            $gambar_ori = $request->file('kendaraan_foto')->move(public_path('default-img/foto'), $randomNamaGambar);
+            $gambar = $randomNamaGambar;
         }
 
         $kendaraan = new Kendaraan;
@@ -63,6 +57,7 @@ class KendaraanController extends Controller
             "created_at" => now(),
             "updated_at" => now()
         ]);
+        return redirect()->route('daftar-kendaraan')->with('status', 'Kendaraan berhasil ditambah!');
     }
 
     public function update_kendaraan(Request $request, $id)
@@ -89,18 +84,21 @@ class KendaraanController extends Controller
             $gambar_cek = $request->file('kendaraan_foto');
             if (!$gambar_cek) {
                 $gambar_ori = $kendaraan->kendaraan_foto;
+                $gambar = $gambar_ori;
             } else {
-                $randomNamaGambar = Str::random(10);
-                $gambar_ori = $request->file('kendaraan_foto')->move(public_path('default-img/foto'), strtolower($randomNamaGambar));
+                $ext = $request->file('kendaraan_foto')->getClientOriginalExtension();
+                $randomNamaGambar = strtolower(Str::random(10)) . "." .$ext;
+                $gambar_ori = $request->file('kendaraan_foto')->move(public_path('default-img/foto'), $randomNamaGambar);
+                $gambar = $randomNamaGambar;
             }
 
-            if ($gambar_ori == $kendaraan->kendaraan_foto) {
-                $gambar = $kendaraan->kendaraan_foto;
-            } else {
-                $gambar_ori = $gambar_ori->getFileName();
-                $ext = $request->file('kendaraan_foto')->getClientOriginalExtension();
-                $gambar = $gambar_ori . "." . $ext;
-            }
+            // if ($gambar_ori == $kendaraan->kendaraan_foto) {
+            //     $gambar = $kendaraan->kendaraan_foto;
+            // } else {
+            //     $gambar_ori = $gambar_ori->getFileName();
+            //     $ext = $request->file('kendaraan_foto')->getClientOriginalExtension();
+            //     $gambar = $gambar_ori . "." . $ext;
+            // }
 
             $kode_kendaraan = "KDR-" . strtoupper(Str::random(5));
 
