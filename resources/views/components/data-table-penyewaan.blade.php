@@ -19,11 +19,9 @@
                         <td>{{ $loop->iteration }}</td>
                         <td class="">{{ $item->rental_kode }}</td>
                         <td class="">
-                            <a href="#" class="btn btn-danger rounded btn-sm button-text-fix" data-toggle="modal" data-target="#modaldelete{{ $item->id }}">
-                                <i class="fas fa-trash"></i>
-                                Hapus
+                            <a href="#" class="link" data-toggle="modal" data-target="#modallihatpenyewa{{ $item->id }}">
+                                {{ $item->data->data_nama_lengkap }}
                             </a>
-                            {{ $item->data->data_nama_lengkap }}
                         </td>
                         <td class="">{{ intval($item->rental_durasi) }} ( {{ $item->rental_satuan_waktu }} )</td>
                         <td>
@@ -89,6 +87,50 @@
                         </td>
 
                     </tr>
+
+                    {{-- MODAL LIHAT PENYEWA --}}
+                    <div class="modal fade" id="modallihatpenyewa{{ $item->id }}" tabindex="1" role="dialog" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Informasi Penyewa : " {{ $item->data->data_nama_lengkap }} "</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="col-sm-4 col-md-4 col-lg-4">
+                                            <h5 class="fix-text">Nama Penyewa</h5>
+                                            <h5 class="fix-text">No. HP / Telepon</h5>
+                                            <h5 class="fix-text">Email </h5>
+                                        </div>
+                                        <div class="col-sm-8 col-md-8 col-lg-8">
+                                            <h5 class="fix-text">: {{ $item->data->data_nama_lengkap }} </h5>
+                                            <h5 class="fix-text">: {{ $item->data->data_telepon }} </h5>
+                                            <h5 class="fix-text">: {{ $item->data->data_email }} </h5>
+                                        </div>
+                                    </div>
+                                    {{-- <div class="row mt-2">
+                                        <div class="col-sm-8 col-md-8 col-lg-8">
+                                            <h5>Deskripsi : </h5>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-12 col-lg-12 text-justify">
+                                            {!! $item->kendaraan_deskripsi !!}
+                                        </div>
+                                    </div> --}}
+                                </div>
+
+                                <div class="modal-footer">
+                                    <button type="button" class="btn gray btn-info" data-dismiss="modal">TUTUP</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     {{-- MODAL LIHAT --}}
                     <div class="modal fade" id="modallihat{{ $item->id }}" tabindex="1" role="dialog" aria-hidden="true">

@@ -52,7 +52,7 @@ class PenyewaanController extends Controller
             'updated_at' => now()
         ]);
         $update_kendaraan = $kendaraan->update([
-            'kendaraan_status' => "BERLANGSUNG",
+            'kendaraan_status' => "DIPAKAI",
             'updated_at' => now()
         ]);
         return redirect()->route('daftar-penyewaan')->with('status', 'Status penyewaan anda telah berlangsung!');
@@ -68,7 +68,7 @@ class PenyewaanController extends Controller
             'updated_at' => now()
         ]);
         $update_kendaraan = $kendaraan->update([
-            'kendaraan_status' => "SELESAI",
+            'kendaraan_status' => "TERSEDIA",
             'updated_at' => now()
         ]);
         return redirect()->route('daftar-penyewaan')->with('status', 'Status penyewaan anda telah selesai!');
