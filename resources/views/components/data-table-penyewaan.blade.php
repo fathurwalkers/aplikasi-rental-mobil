@@ -6,6 +6,7 @@
                 <tr class="text-center">
                     <th>No</th>
                     <th>Kode Penyewaan</th>
+                    <th>Penyewa</th>
                     <th>Durasi</th>
                     <th>Status</th>
                     <th>Aksi</th>
@@ -17,6 +18,13 @@
                     <tr>
                         <td>{{ $loop->iteration }}</td>
                         <td class="">{{ $item->rental_kode }}</td>
+                        <td class="">
+                            <a href="#" class="btn btn-danger rounded btn-sm button-text-fix" data-toggle="modal" data-target="#modaldelete{{ $item->id }}">
+                                <i class="fas fa-trash"></i>
+                                Hapus
+                            </a>
+                            {{ $item->data->data_nama_lengkap }}
+                        </td>
                         <td class="">{{ intval($item->rental_durasi) }} ( {{ $item->rental_satuan_waktu }} )</td>
                         <td>
                             <div class="row">
