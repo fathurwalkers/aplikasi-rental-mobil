@@ -12,6 +12,7 @@ class CreateRentalsTable extends Migration
             $table->id();
 
             $table->string('rental_kode')->nullable();
+            $table->integer('rental_total_harga')->nullable();
             $table->dateTime('rental_waktu_pemesanan')->nullable();
             $table->string('rental_durasi')->nullable();
             $table->string('rental_satuan_waktu')->nullable();

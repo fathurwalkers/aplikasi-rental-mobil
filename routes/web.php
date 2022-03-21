@@ -31,6 +31,7 @@ Route::group(["prefix" => "/dashboard", "middleware" => "ceklogin"], function ()
     Route::post('/konfirmasi-penyewaan-selesai/{id}', [PenyewaanController::class, 'konfirmasi_penyewaan_selesai'])->name('konfirmasi-penyewaan-selesai');
     Route::post('/daftar-penyewaan/update/{id}', [PenyewaanController::class, 'update_penyewaan'])->name('update-penyewaan');
     Route::post('/daftar-penyewaan/hapus/{id}', [PenyewaanController::class, 'hapus_penyewaan'])->name('hapus-penyewaan');
+    Route::get('/cetak-invoice/{id}', [PenyewaanController::class, 'cetak_invoice'])->name('cetak-invoice');
 
     // Customer Route
     Route::get('/daftar-customer', [CustomerController::class, 'daftar_customer'])->name('daftar-customer');

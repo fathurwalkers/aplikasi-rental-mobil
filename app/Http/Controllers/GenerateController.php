@@ -214,9 +214,12 @@ class GenerateController extends Controller
                     break;
             }
 
+            $total_harga = $faker->numberBetween(2000000, 6000000);
+
             $penyewaan          = new Rental;
             $save_penyewaan     = $penyewaan->create([
                 "rental_kode"               => $kode_penyewaan,
+                "rental_total_harga"        => $total_harga,
                 "rental_waktu_pemesanan"    => now(),
                 "rental_durasi"             => $durasi,
                 "rental_satuan_waktu"       => $random_satuan_waktu,

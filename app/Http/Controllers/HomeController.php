@@ -46,8 +46,15 @@ class HomeController extends Controller
                 $rental_kode = "RNDRA". strtoupper(Str::random(8));
                 $rental_status = "PENDING";
 
+                $kendaraan_harga = $kendaraan->kendaraan_harga_sewa;
+                dump($kendaraan_harga);
+                dump($rental_durasi);
+                dump($rental_satuan_waktu);
+                die;
+
                 $save_rental = $rental->create([
                     "rental_kode" => $rental_kode,
+                    "rental_total_harga" => $total_harga,
                     "rental_waktu_pemesanan" => now(),
                     "rental_durasi" => intval($rental_durasi),
                     "rental_satuan_waktu" => $rental_satuan_waktu,

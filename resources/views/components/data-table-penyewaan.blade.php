@@ -34,12 +34,12 @@
                                             </button>
                                             @break
                                         @case("PENDING")
-                                            <button class="btn btn-sm btn-info button-text-fix">
+                                            <button class="btn btn-sm btn-danger button-text-fix">
                                                 PENDING
                                             </button>
                                             @break
                                         @case("BERLANGSUNG")
-                                            <button class="btn btn-sm btn-danger button-text-fix">
+                                            <button class="btn btn-sm btn-info button-text-fix">
                                                 SEDANG BERLANGSUNG
                                             </button>
                                             @break
@@ -55,32 +55,54 @@
                             <div class="row">
                                 <div class="col-sm-12 col-md-12 col-lg-12 d-flex mx-auto justify-content-center">
 
+
                                     @if ($users->login_level == "admin")
-                                    <a class="btn btn-sm btn-info mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modalkonfirmasipenyewaan{{ $item->id }}">
-                                        <i class="fas fa-info-circle"></i>
-                                        Konfirmasi
-                                    </a>
 
-                                    <a class="btn btn-sm btn-success mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modalselesai{{ $item->id }}">
-                                        <i class="fas fa-info-circle"></i>
-                                        Selesai
-                                    </a>
+                                        @if ($item->rental_status == "PENDING")
+                                            <a class="btn btn-sm btn-info mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modalkonfirmasipenyewaan{{ $item->id }}">
+                                                <i class="fas fa-info-circle"></i>
+                                                Konfirmasi
+                                            </a>
+                                        @endif
 
-                                    {{-- <a class="btn btn-sm btn-primary mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modalupdate{{ $item->id }}">
-                                        <i class="fas fa-cog"></i>
-                                        Ubah
-                                    </a> --}}
+                                        @if ($item->rental_status == "BERLANGSUNG")
+                                            <a class="btn btn-sm btn-success mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modalselesai{{ $item->id }}">
+                                                <i class="fas fa-info-circle"></i>
+                                                Selesai
+                                            </a>
 
-                                    <a href="#" class="btn btn-danger rounded btn-sm button-text-fix" data-toggle="modal" data-target="#modaldelete{{ $item->id }}">
-                                        <i class="fas fa-trash"></i>
-                                        Hapus
-                                    </a>
+                                            @if ($users->login_level == "admin")
+                                                <a href="{{ route('cetak-invoice', $item->id) }}" class="btn btn-primary rounded btn-sm button-text-fix mr-1" target="_blank" rel="noopener noreferrer">
+                                                    <i class="fas fa-info-circle"></i>
+                                                    Cetak Invoice
+                                                </a>
+                                            @endif
+                                        @endif
+
+                                        {{-- <a class="btn btn-sm btn-primary mr-1 rounded button-text-fix" href="#" data-toggle="modal" data-target="#modalupdate{{ $item->id }}">
+                                            <i class="fas fa-cog"></i>
+                                            Ubah
+                                        </a> --}}
+
+                                        <a href="#" class="btn btn-danger rounded btn-sm button-text-fix" data-toggle="modal" data-target="#modaldelete{{ $item->id }}">
+                                            <i class="fas fa-trash"></i>
+                                            Hapus
+                                        </a>
                                     @endif
 
-                                    <a href="#" class="btn btn-info rounded btn-sm button-text-fix" data-toggle="modal" data-target="#modallihat{{ $item->id }}">
+                                    <a href="#" class="btn btn-info rounded btn-sm button-text-fix ml-1" data-toggle="modal" data-target="#modallihat{{ $item->id }}">
                                         <i class="fas fa-info-circle"></i>
                                         Lihat
                                     </a>
+
+                                    @if ($item->rental_status == "BERLANGSUNG")
+                                        @if ($users->login_level == "customer")
+                                            <a href="{{ route('cetak-invoice', $item->id) }}" class="btn btn-primary rounded btn-sm button-text-fix mr-1" target="_blank" rel="noopener noreferrer">
+                                                <i class="fas fa-info-circle"></i>
+                                                Cetak Invoice
+                                            </a>
+                                        @endif
+                                    @endif
 
                                 </div>
                             </div>
@@ -150,6 +172,7 @@
                                             <h5 class="fix-text">Nama Penyewa</h5>
                                             <h5 class="fix-text">Kode Penyewaan </h5>
                                             <h5 class="fix-text">Status Penyewaan </h5>
+                                            <h5 class="fix-text">Tgl. Penyewaan </h5>
                                             <h5 class="fix-text">Durasi Penyewaan</h5>
                                             <h5 class="fix-text">Merk Kendaraan</h5>
                                         </div>
@@ -157,6 +180,7 @@
                                             <h5 class="fix-text">: {{ $item->data->data_nama_lengkap }} </h5>
                                             <h5 class="fix-text">: {{ $item->rental_kode }} </h5>
                                             <h5 class="fix-text">: {{ $item->rental_status }} </h5>
+                                            <h5 class="fix-text">: {{ date('d/m/Y', strtotime($item->updated_at)) }} </h5>
                                             <h5 class="fix-text">: {{ $item->rental_durasi }} ({{ $item->rental_satuan_waktu }}) </h5>
                                             <h5 class="fix-text">: {{ $item->kendaraan->kendaraan_merk }} </h5>
                                         </div>

@@ -85,4 +85,12 @@ class PenyewaanController extends Controller
     {
         //
     }
+
+    public function cetak_invoice($id)
+    {
+        $penyewaan = Rental::findOrFail($id);
+        return view('dashboard.cetak-invoice', [
+            'penyewaan' => $penyewaan
+        ]);
+    }
 }
