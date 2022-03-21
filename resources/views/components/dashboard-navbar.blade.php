@@ -29,29 +29,29 @@
                         </div>
 
                         <div class="modal-body">
-                            <div class="row mb-4">
+                            <div class="row mb-5">
                                 <div class="col-sm-12 col-md-12 col-lg-12 d-flex justify-content-center">
-                                    <img src="{{ asset('default-img') }}/male.jpg" alt="" class="img img-thumbnail" width="65%">
+                                    <img src="{{ asset('default-img') }}/male.jpg" alt="" class="img img-thumbnail" width="50%">
                                 </div>
                             </div>
                             <div class="row mt-2">
                                 <div class="col-sm-4 col-md-4 col-lg-4">
-                                    <h5 class="fix-text-h5">Nama Lengkap </h5>
-                                    <h5 class="fix-text-h5">Username </h5>
-                                    <h5 class="fix-text-h5">Hak Akses </h5>
-                                    <h5 class="fix-text-h5">Status Pengguna </h5>
-                                    <h5 class="fix-text-h5">Email</h5>
-                                    <h5 class="fix-text-h5">No. HP / Telepon</h5>
+                                    <h5 class="fix-text-h5-back">Nama Lengkap </h5>
+                                    <h5 class="fix-text-h5-back">Username </h5>
+                                    <h5 class="fix-text-h5-back">Hak Akses </h5>
+                                    <h5 class="fix-text-h5-back">Status Pengguna </h5>
+                                    <h5 class="fix-text-h5-back">Email</h5>
+                                    <h5 class="fix-text-h5-back">No. HP / Telepon</h5>
                                 </div>
                                 <div class="col-sm-8 col-md-8 col-lg-8">
-                                    <h5 class="fix-text-h5">: {{ $users->login_nama }} </h5>
-                                    <h5 class="fix-text-h5">: {{ $users->login_username }} </h5>
-                                    <h5 class="fix-text-h5">
+                                    <h5 class="fix-text-h5-back">: {{ $users->login_nama }} </h5>
+                                    <h5 class="fix-text-h5-back">: {{ $users->login_username }} </h5>
+                                    <h5 class="fix-text-h5-back">
                                         {{-- : <button class="btn btn-md btn-info" type="button"> --}}
                                             {{ $users->login_level }}
                                         {{-- </button> --}}
                                     </h5>
-                                    <h5 class="fix-text-h5"> :
+                                    <h5 class="fix-text-h5-back"> :
                                         @switch($users->login_status)
                                             @case("verified")
                                                 {{-- <button class="btn btn-md btn-info px-1" type="button"> --}}
@@ -65,8 +65,8 @@
                                                 @break
                                         @endswitch
                                     </h5>
-                                    <h5 class="fix-text-h5">: {{ $users->login_email }} </h5>
-                                    <h5 class="fix-text-h5">: {{ $users->login_telepon }} </h5>
+                                    <h5 class="fix-text-h5-back">: {{ $users->login_email }} </h5>
+                                    <h5 class="fix-text-h5-back">: {{ $users->login_telepon }} </h5>
                                 </div>
                             </div>
                         </div>

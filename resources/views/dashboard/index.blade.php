@@ -1,9 +1,11 @@
 @extends('layouts.admin-layout')
 
 @push('css')
-<style>
-
-</style>
+{{-- <style>
+    .fix-text-h5 {
+        font-size: 2px!important;
+    }
+</style> --}}
 @endpush
 
 @section('content-header', 'Dashboard - Index')

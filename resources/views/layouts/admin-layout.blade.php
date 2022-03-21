@@ -18,6 +18,10 @@
     .modal-backdrop.show {
         display: none !important;
     }
+
+    .fix-text-h5-back {
+        font-size: 14px!important;
+    }
   </style>
   @stack('css')
 </head>
