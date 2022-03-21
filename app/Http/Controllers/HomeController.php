@@ -39,6 +39,12 @@ class HomeController extends Controller
         } else {
             $login = Login::find($users->id);
             if ($users->login_level == "customer") {
+
+                $validateData = $request->validate([
+                    'rental_durasi' => 'required',
+                    'rental_satuan_waktu' => 'required|filled'
+                ]);
+
                 $data                   = Data::find($login->data_id);
                 $rental                 = new Rental;
                 $rental_durasi          = $request->rental_durasi;
