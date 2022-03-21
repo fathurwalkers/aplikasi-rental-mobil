@@ -90,7 +90,7 @@
                                         </a>
                                     @endif
 
-                                    <a href="#" class="btn btn-info rounded btn-sm button-text-fix ml-1" data-toggle="modal" data-target="#modallihat{{ $item->id }}">
+                                    <a href="#" class="btn btn-info rounded btn-sm button-text-fix ml-1 mr-1" data-toggle="modal" data-target="#modallihat{{ $item->id }}">
                                         <i class="fas fa-info-circle"></i>
                                         Lihat
                                     </a>

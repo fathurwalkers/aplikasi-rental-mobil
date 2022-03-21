@@ -47,14 +47,23 @@ class HomeController extends Controller
                 $rental_status = "PENDING";
 
                 $kendaraan_harga = $kendaraan->kendaraan_harga_sewa;
-                dump($kendaraan_harga);
-                dump($rental_durasi);
-                dump($rental_satuan_waktu);
-                die;
+
+                switch ($rental_satuan_waktu) {
+                    case 'BULAN':
+                        $satuan_waktu = 28;
+                        $hasil_kali = intval($satuan_waktu) * intval($rental_durasi);
+                        break;
+                    case 'HARI':
+                        $satuan_waktu = 1;
+                        $hasil_kali = intval($satuan_waktu) * intval($rental_durasi);
+                        break;
+                }
+
+                $total_harga = intval($hasil_kali) * intval($kendaraan_harga);
 
                 $save_rental = $rental->create([
                     "rental_kode" => $rental_kode,
-                    "rental_total_harga" => $total_harga,
+                    "rental_total_harga" => intval($total_harga),
                     "rental_waktu_pemesanan" => now(),
                     "rental_durasi" => intval($rental_durasi),
                     "rental_satuan_waktu" => $rental_satuan_waktu,

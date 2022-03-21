@@ -64,7 +64,7 @@
                             <p style="margin-top: -95px;">1.</p>
                         </td>
                         <td style="text-align: center;">
-                            <p style="margin-top: -95px;">02 Juli.'13</p>
+                            <p style="margin-top: -95px;">{{ date('d/m/Y', strtotime($penyewaan->created_at)) }}</p>
                         </td>
                         <td></td>
                         <td style="padding: 0px 0px;">
@@ -84,12 +84,30 @@
                                 <tr>
                                     <td></td>
                                     <td>:</td>
-                                    <td>Paket Harian</td>
+                                    <td>Paket
+                                        @switch($penyewaan->rental_satuan_waktu)
+                                            @case("BULAN")
+                                                Bulanan
+                                                @break
+                                            @case("HARI")
+                                                Harian
+                                                @break
+                                        @endswitch
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Harga</td>
                                     <td>:</td>
-                                    <td>Rp. 350.000,- x 1 hr</td>
+                                    <td>Rp. {{ number_format($penyewaan->kendaraan->kendaraan_harga_sewa,0,',','.')}},- x {{ $penyewaan->rental_durasi }} /
+                                        @switch($penyewaan->rental_satuan_waktu)
+                                            @case("BULAN")
+                                                Bulan
+                                                @break
+                                            @case("HARI")
+                                                Hari
+                                                @break
+                                        @endswitch
+                                    </td>
                                 </tr>
                             </table>
 
@@ -125,13 +143,13 @@
                         </td>
                         <td>
                             <div class="price" style="margin-top: -95px; text-align: center;">
-                                <p>Rp 350.000</p>
+                                <p>Rp {{ number_format($penyewaan->rental_total_harga,0,',','.')}}</p>
                             </div>
                             <div class="total" style="transform: translateY(208px);">
                                 <p
                                     style="display: flex; justify-content: space-between; padding: 0 3px; border-top: 3px solid black;">
                                     <font>Rp.</font>
-                                    <font>350.000</font>
+                                    <font>{{ number_format($penyewaan->rental_total_harga,0,',','.')}}</font>
                                 </p>
                                 <p
                                     style="display: flex; justify-content: space-between; padding: 0 3px;border-bottom: 1.5px solid black;">
@@ -141,17 +159,17 @@
                                 <p
                                     style="display: flex; justify-content: space-between; padding: 0 3px;border-top: 1.5px solid black; margin-top: 1.5px;">
                                     <font>Rp.</font>
-                                    <font>350.000</font>
+                                    <font>{{ number_format($penyewaan->rental_total_harga,0,',','.')}}</font>
                                 </p>
                             </div>
                         </td>
                     </tr>
-                    <tr>
+                    {{-- <tr>
                         <td colspan="5" style="padding: 18px 4px; font-weight: bold;">
                             <p>Terbilang:Tiga Ratus Lima Puluh Ribu Rupiah</p>
                         </td>
-                    </tr>
-                    <tr>
+                    </tr> --}}
+                    {{-- <tr>
                         <td colspan="5">
                             <div class="pay" style="display: flex;">
                                 <div class="bank-1" style="border-right: 1px solid black; padding-left: 5px; padding-right: 100px;">
@@ -169,20 +187,20 @@
 
                             </div>
                         </td>
-                    </tr>
+                    </tr> --}}
                 </tbody>
             </table>
         </div>
         <div class="footer">
             <div class="footer-head">
                 <p>Hormat Kami</p>
-                <h4>Pelangi Holiday</h4>
+                <h4>RENDRA RENTAL</h4>
             </div>
             <div class="footer-sign" style="padding: 20px 0px;">
 
             </div>
             <div class="footer-foot">
-                <p>Accounting Manager</p>
+                <p>Petugas Penyewaan</p>
             </div>
         </div>
     </div>

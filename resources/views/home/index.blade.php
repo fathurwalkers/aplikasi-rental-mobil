@@ -140,7 +140,7 @@
                                                 <option selected disabled>Pilih satuan waktu...</option>
                                                 <option value="HARI">Hari</option>
                                                 <option value="BULAN">Bulan</option>
-                                                <option value="JAM">Jam</option>
+                                                {{-- <option value="JAM">Jam</option> --}}
                                             </select>
                                         </div>
                                     </div>
