@@ -133,7 +133,7 @@ class GenerateController extends Controller
             ];
 
             $arr_kondisi = ["BARU", "LAMA"];
-            $arr_status = ["TERSEDIA", "RENTAL", "KOSONG"];
+            $arr_status = ["TERSEDIA", "DIPAKAI", "KOSONG"];
             $arr_tipe_kendaraan = ["MOBIL", "MOTOR"];
             $arr_merk = ["TOYOTA","HONDA","DAIHATSU","SUZUKI","MITSUBISHI","KIA","NISSAN","DATSUN"];
             $arr_tahun = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020];
