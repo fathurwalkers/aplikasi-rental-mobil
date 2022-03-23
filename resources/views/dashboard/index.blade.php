@@ -8,7 +8,7 @@
 </style> --}}
 @endpush
 
-@section('content-header', 'Dashboard - Index')
+@section('content-header', 'Beranda')
 
 @section('content-body')
 {{-- <div class="container"> --}}

@@ -217,7 +217,7 @@
                                 </div>
 
                                 <div class="modal-body">Apakah anda yakin ingin menghapus item ini? </div>
-                                <form action="{{ route('hapus-kendaraan', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                <form action="{{ route('hapus-penyewaan', $item->id) }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-footer">
                                         <button type="button" class="btn gray btn-outline-secondary" data-dismiss="modal">Cancel</button>

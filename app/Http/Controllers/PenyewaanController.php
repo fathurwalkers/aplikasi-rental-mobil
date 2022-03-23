@@ -77,7 +77,12 @@ class PenyewaanController extends Controller
     public function hapus_penyewaan(Request $request, $id)
     {
         $penyewaan_id = $id;
-        $findpenyewaan = Penyewaan::findOrFail($penyewaan_id);
+        $findpenyewaan = Rental::findOrFail($penyewaan_id);
+        $kendaraan = Kendaraan::find($findpenyewaan->kendaraan_id);
+        $update_kendaraan = $kendaraan->update([
+            'kendaraan_status' => "TERSEDIA",
+            'updated_at' => now()
+        ]);
         $findpenyewaan->forceDelete();
         return redirect()->route('daftar-penyewaan')->with('status', 'Data telah dihapus!');
     }
