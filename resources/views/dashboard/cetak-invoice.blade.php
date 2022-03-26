@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('print') }}/css/style.css">
-    <title>Document</title>
+    <title>INVOICE-{{ $penyewaan->rental_kode }}_{{ date("d-m-Y", strtotime($penyewaan->created_at))}}</title>
 </head>
 
 
-{{-- <body onload="window.print()"> --}}
-<body>
+<body onload="window.print()">
+{{-- <body> --}}
     <div class="container">
         <div class="header" style="display: flex; justify-content: space-between;">
             <div class="company-info">

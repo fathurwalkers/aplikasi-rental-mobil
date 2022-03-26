@@ -74,7 +74,7 @@
                                             @if ($users->login_level == "admin")
                                                 <a href="{{ route('cetak-invoice', $item->id) }}" class="btn btn-primary rounded btn-sm button-text-fix mr-1" target="_blank" rel="noopener noreferrer">
                                                     <i class="fas fa-info-circle"></i>
-                                                    Cetak Invoice
+                                                    Lihat Invoice
                                                 </a>
                                             @endif
                                         @endif

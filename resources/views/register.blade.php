@@ -112,7 +112,7 @@
 
                   <div class="form-group">
                     <button type="submit" class="btn btn-primary btn-lg btn-block" tabindex="4">
-                      Login
+                      DAFTAR SEKARANG
                     </button>
                   </div>
                 </form>
