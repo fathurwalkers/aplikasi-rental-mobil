@@ -31,11 +31,20 @@ class BackController extends Controller
                 ]);
                 break;
             case "customer":
-                $user_data = Data::find($user_login->data_id);
+                $user_data          = Data::find($user_login->data_id);
+                $data               = Data::all()->count();
+                $login              = Login::all()->count();
+                $kendaraan          = Kendaraan::all()->count();
+                $rental             = Rental::all()->count();
                 if ($user_data == null) {
                     return redirect()->route('pendaftaran-data-customer')->with('status', 'Anda belu mempunyai Data customer, silahkan melakukan pengisian form data customer sebelum mengakses halaman lain pada Dashboard Panel ini. ');
                 } else {
-                    return view('dashboard.index');
+                    return view('dashboard.index', [
+                        'data'          => $data,
+                        'login'         => $login,
+                        'kendaraan'     => $kendaraan,
+                        'rental'        => $rental
+                    ]);
                 }
                 break;
         }

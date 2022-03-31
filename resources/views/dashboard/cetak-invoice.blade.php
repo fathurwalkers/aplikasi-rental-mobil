@@ -74,7 +74,16 @@
                                 <tr>
                                     <td class="client-name" style="padding-right: 10px;">Nama Klien</td>
                                     <td class="client-name">:</td>
-                                    <td class="client-name" style="font-weight: bold;">Bapak Hakim</td>
+                                    <td class="client-name" style="font-weight: bold;">
+                                        @switch($penyewaan->data->data_jenis_kelamin)
+                                            @case("L")
+                                            <p>Bapak {{ $penyewaan->data->data_nama_lengkap }}</p>
+                                                @break
+                                            @case("P")
+                                            <p>Ibu {{ $penyewaan->data->data_nama_lengkap }}</p>
+                                                @break
+                                        @endswitch
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Layanan</td>

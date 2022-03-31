@@ -17,7 +17,7 @@ class Rental extends Model
 
     public function data()
     {
-        return $this->belongsTo(Data::class);
+        return $this->belongsTo(Data::class, 'data_id');
     }
 
     public function kendaraan()

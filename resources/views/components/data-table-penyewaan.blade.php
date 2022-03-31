@@ -7,6 +7,7 @@
                     <th>No</th>
                     <th>Kode Penyewaan</th>
                     <th>Penyewa</th>
+                    <th>Tgl. Sewa</th>
                     <th>Durasi</th>
                     <th>Status</th>
                     <th>Aksi</th>
@@ -22,6 +23,11 @@
                             <a href="#" class="link" data-toggle="modal" data-target="#modallihatpenyewa{{ $item->id }}">
                                 {{ $item->data->data_nama_lengkap }}
                             </a>
+                        </td>
+                        <td class="">
+                            {{ date("d-m-Y", strtotime($item->created_at)) }}
+                            /
+                            {{ date("H:i", strtotime($item->created_at)) }}
                         </td>
                         <td class="">{{ intval($item->rental_durasi) }} ( {{ $item->rental_satuan_waktu }} )</td>
                         <td>

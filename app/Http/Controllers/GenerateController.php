@@ -229,7 +229,9 @@ class GenerateController extends Controller
                 "created_at"                => now(),
                 "updated_at"                => now()
             ]);
+            $save_penyewaan->save();
             $save_penyewaan->data()->associate($random_data["id"]);
+            $save_penyewaan->save();
             $save_penyewaan->kendaraan()->associate($random_kendaraan["id"]);
             $save_penyewaan->save();
         }
